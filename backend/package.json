@@ -29,7 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint . --ext .ts"
+      "pre-commit": "yarn lint"
     }
   },
   "lint-staged": {
