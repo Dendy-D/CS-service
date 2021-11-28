@@ -29,13 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "npm run lint"
     }
-  },
-  "lint-staged": {
-    "*": [
-      "yarn lint",
-      "yarn lint --fix"
-    ]
   }
 }
