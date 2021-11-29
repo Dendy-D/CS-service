@@ -1,5 +1,6 @@
 {
   "name": "backend",
+  "author": "Antonio",
   "version": "0.0.1",
   "description": "",
   "main": "app.ts",
@@ -8,7 +9,6 @@
     "lint": "eslint . --ext .ts",
     "lint --fix": "eslint . --ext .ts --fix"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
