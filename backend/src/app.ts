@@ -1,8 +1,9 @@
 import express from 'express';
+import config from 'config';
 
 const app = express();
 
-const PORT = process.env.port || 5000;
+const PORT = config.get('PORT') || 5000;
 
 async function start() {
   try {
@@ -13,6 +14,7 @@ async function start() {
     app.listen(PORT, () => {
       console.log(`Server is runnig on: http://localhost:${PORT}`);
     });
+    //TODO: should fix "any" tipe
   } catch (e: any) {
     console.log('Server Error', e.message);
     process.exit(1);
@@ -20,4 +22,3 @@ async function start() {
 }
 
 start();
-
