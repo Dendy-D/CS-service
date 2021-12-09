@@ -3,7 +3,7 @@ import config from 'config';
 
 const app = express();
 
-const PORT = config.get('PORT') || 5000;
+const PORT = config.get('PORT') || 5001;
 
 async function start() {
   try {
@@ -22,3 +22,12 @@ async function start() {
 }
 
 start();
+
+// create table admin (
+//   id UUID PRIMARY KEY NOT NULL,
+//   login VARCHAR NOT NULL,
+//   password VARCHAR NOT NULL,
+//   fullName VARCHAR NOT NULL,
+//   phoneNumber VARCHAR NOT NULL,
+//   position VARCHAR NOT NULL
+// );
