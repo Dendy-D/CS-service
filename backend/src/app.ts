@@ -15,10 +15,10 @@ async function start() {
       console.log(`Server is runnig on: http://localhost:${PORT}`);
     });
     //TODO: should fix "any" tipe
-  } catch (e: any) {
-    console.log('Server Error', e.message);
-    process.exit(1);
-  }
+  // } catch (e: any) {
+  //   console.log('Server Error', e.message);
+  //   process.exit(1);
+  // }
 }
 
 start();
