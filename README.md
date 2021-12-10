@@ -1,8 +1,8 @@
 # CarsSelling
 visual db for staff
 
-![Схема](/backend/schema/schema_full.png);
+![Схема часть 1](/backend/schema/schema_full.png);
 
-![Схема](/backend/schema/schema_part_1.png);
+![Схема часть 2](/backend/schema/schema_part_1.png);
 
-![Схема](/backend/schema/schema_part_2.png);
+![Схема полная версия](/backend/schema/schema_part_2.png);
