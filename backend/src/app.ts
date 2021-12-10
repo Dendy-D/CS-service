@@ -21,7 +21,7 @@ async function start() {
   }
 }
 
-// start();
+start();
 
 // create table admin (
 //   id UUID PRIMARY KEY NOT NULL,
