@@ -14,7 +14,7 @@
     "default-case": 2,
     "default-param-last": 2,
     "eqeqeq": 2,
-    "new-cap": 2,
+    "new-cap": 0,
     "no-else-return": 2,
     "no-eval": 2,
     "no-param-reassign": 2,
@@ -69,6 +69,7 @@
     "no-unused-vars": "off",
 
     "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/ban-types": "warn",
     "@typescript-eslint/no-use-before-define": "warn",
     "@typescript-eslint/no-shadow": "error",
