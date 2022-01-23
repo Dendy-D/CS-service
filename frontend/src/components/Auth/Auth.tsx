@@ -1,6 +1,9 @@
-import React, { ReactHTMLElement, useState } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 
+// import employeesDataBase from '../../models/employeesDB';
+import Toast from '../Toast';
+// import toast from '../Toast/toast';
 import classes from './Auth.module.scss';
 
 const Auth: React.FC = () => {
@@ -18,6 +21,14 @@ const Auth: React.FC = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [position, setPosition] = useState(options[0]);
+  const [emptyFields, setEmptyFields] = useState(false);
+  const [isShowTost, setShowTost] = useState(false);
+  // const [currentAmount, setCurrentAmount] = useState(0);
+
+  const errors = {
+    emptyFieldError: 'Необходимо заполнить все необходимые поля',
+    authError: 'Проверьте правильность ввода данных',
+  };
 
   const changeLogin: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setLogin(e.target.value);
@@ -36,18 +47,32 @@ const Auth: React.FC = () => {
     setPosition(value);
   };
 
+  const authenticationСonfirmation: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+
+    if (!login || !password) {
+      setEmptyFields(true);
+      setShowTost(true);
+      // toast();
+    } else {
+      setEmptyFields(false);
+    }
+  };
+
   return (
     <div className={classes.component}>
       <div className={classes.wrap}>
         <h1 className={classes.header}>Авторизация</h1>
-        <Select
-          onChange={changePosition}
-          value={position}
-          className={classes.select}
-          options={options}
-          defaultValue={options[1]}
-        />
         <form className={classes.form}>
+          <div>
+            <Select
+              onChange={changePosition}
+              value={position}
+              className={classes.select}
+              options={options}
+              defaultValue={options[1]}
+            />
+          </div>
           <div>
             <input
               value={login}
@@ -76,12 +101,25 @@ const Auth: React.FC = () => {
             />
           </div>
           <div>
-            <button className={classes.button}>
+            <button
+              className={classes.button}
+              onClick={authenticationСonfirmation}
+            >
               Войти в систему
             </button>
           </div>
         </form>
       </div>
+      {emptyFields &&
+        <Toast
+          message={errors.emptyFieldError}
+          type='error'
+          size='md'
+          position='right'
+          verticalOffset={100}
+          animationStyle='scroll_to_left'
+        />
+      }
     </div>
   );
 };
