@@ -1,0 +1,202 @@
+.component {
+  position: absolute;
+  top: 30px;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+
+  .message {
+    $c: red;
+
+    position: relative;
+    max-width: 500px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    padding: 20px 30px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.hide {
+      animation-name: hide !important;
+    }
+    @keyframes hide {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(600px);
+      }
+    }
+
+    .crossIcon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+
+      g line {
+        stroke: #B3B3B3;
+        stroke-width: 3px;
+      }
+
+      &:hover {
+        g line {
+          stroke-width: 5px;
+        }
+      }
+    }
+
+    &.small {
+      width: 200px;
+    }
+
+    &.large {
+      width: 400px;
+    }
+
+    &.scroll_to_left {
+      animation-name: scroll_to_left;
+    }
+
+    @keyframes scroll_to_left {
+      from {
+        transform: translateX(600px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    &.scroll_to_right {
+      animation-name: scroll_to_right;
+    }
+
+    @keyframes scroll_to_right {
+      from {
+        transform: translateX(-600px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    &.scroll_to_top {
+      animation-name: scroll_to_top;
+    }
+
+    @keyframes scroll_to_top {
+      from {
+        transform: translateY(400px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    &.scroll_to_bottom {
+      animation-name: scroll_to_bottom;
+    }
+
+    @keyframes scroll_to_bottom {
+      from {
+        transform: translateY(-100px);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    &.default {
+      background-color: #f5f8ff;
+      color: #039;
+
+      &.accent {
+        background-color: #003796;
+        color: #fff;
+      }
+
+      &.outline {
+        background-color: #fff;
+        border: 1px solid #003796;
+        color: #303236;
+      }
+    }
+
+    &.warning {
+      background-color: #fff3cc;
+      color: #c90;
+
+      &.accent {
+        background-color: #ffbd30;
+        color: #fff;
+      }
+
+      &.outline {
+        background-color: #fff;
+        border: 1px solid #ffbd30;
+        color: #303236;
+      }
+    }
+
+    &.error {
+      background-color: #ffebeb;
+      color: #c00;
+
+      &.accent {
+        background-color: #fd0013;
+        color: #fff;
+      }
+
+      &.outline {
+        background-color: #fff;
+        border: 1px solid #fd0013;
+        color: #303236;
+      }
+    }
+
+    &.sucsess {
+      background-color: #daf2de;
+      color: #394;
+
+      &.accent {
+        background-color: #45be5c;
+        color: #fff;
+      }
+
+      &.outline {
+        background-color: #fff;
+        border: 1px solid #45be5c;
+        color: #303236;
+      }
+    }
+
+    // &.outline {
+    //   background-color: salmon;
+    // }
+  }
+}
+
+.right {
+  right: 30px;
+}
+
+.left {
+  left: 30px;
+}
+
+.hide {
+  color: red;
+}
