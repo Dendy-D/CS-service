@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import html2canvas from 'html2canvas';
 
 // import employeesDataBase from '../../models/employeesDB';
-import Toast from '../Toast';
-// import toast from '../Toast/toast';
+import { ToastContainer, toastik } from '../toastik';
 import classes from './Auth.module.scss';
+import axios from 'axios';
+import App from '../App';
 
 const Auth: React.FC = () => {
   const options = [
@@ -23,10 +25,9 @@ const Auth: React.FC = () => {
   const [position, setPosition] = useState(options[0]);
   const [emptyFields, setEmptyFields] = useState(false);
   const [isShowTost, setShowTost] = useState(false);
-  // const [currentAmount, setCurrentAmount] = useState(0);
 
   const errors = {
-    emptyFieldError: 'Необходимо заполнить все необходимые поля',
+    emptyFieldError: 'Заполните все необходимые поля',
     authError: 'Проверьте правильность ввода данных',
   };
 
@@ -52,8 +53,7 @@ const Auth: React.FC = () => {
 
     if (!login || !password) {
       setEmptyFields(true);
-      setShowTost(true);
-      // toast();
+      toastik();
     } else {
       setEmptyFields(false);
     }
@@ -63,7 +63,7 @@ const Auth: React.FC = () => {
     <div className={classes.component}>
       <div className={classes.wrap}>
         <h1 className={classes.header}>Авторизация</h1>
-        <form className={classes.form}>
+        <div className={classes.form}>
           <div>
             <Select
               onChange={changePosition}
@@ -108,18 +108,12 @@ const Auth: React.FC = () => {
               Войти в систему
             </button>
           </div>
-        </form>
+        </div>
       </div>
-      {emptyFields &&
-        <Toast
-          message={errors.emptyFieldError}
-          type='error'
-          size='md'
-          position='right'
-          verticalOffset={100}
-          animationStyle='scroll_to_left'
-        />
-      }
+      <ToastContainer
+        message={errors.emptyFieldError}
+        type="error"
+      />
     </div>
   );
 };
