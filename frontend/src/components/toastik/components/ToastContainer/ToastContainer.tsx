@@ -4,12 +4,12 @@ import uniqueId from 'lodash/uniqueId';
 import clsx from 'clsx';
 
 import Toast from '../Toast';
-import { toastik } from '../..';
 import { ToastProps } from '../../types/Toats';
 import toastStore from '../../stores/toastStore';
 
 const ToastContainer: React.FC<ToastProps> = React.memo(
   observer((props: ToastProps) => {
+
     const {
       message = 'Hello, I am toastik :)',
       outline = 'fill',
@@ -27,6 +27,8 @@ const ToastContainer: React.FC<ToastProps> = React.memo(
     } = props;
 
     toastStore.setAllProps(props);
+
+    console.log(toastStore.getAllProps());
 
     const toasts = toastStore.getToasts();
 
@@ -54,19 +56,6 @@ const ToastContainer: React.FC<ToastProps> = React.memo(
               <Toast id={toast.id} />
             </React.Fragment>
           )) : ''}
-          {/* {arrayOfMessages
-          .map((mess, index) => (
-            <Toast />
-            <div
-              className={messageClasses}
-              style={{ animationDuration: `${convertedAnimationSpeed / 100}s`}}
-              key={uniqueId(`message_${index}`)}>
-              {close ?
-                <CrossIcon className='crossIcon' onClick={onClose} />
-                : ''}
-              {sliceMessage}
-            </div>
-          ))} */}
         </div>
       </>
     );
