@@ -11,14 +11,16 @@ import { observer } from 'mobx-react-lite';
 //TODO: add other features to Toast (in blue comments)
 
 //? currentAmount - give acsess to defined amound messages in one page
-//? onClose - Обработчик события нажатия на кнопку "закрыть". Если задан, тогда кнопка отображается.
 
 //! Add ===timer=== and ===close button=== by condition
 
-const Toast: React.FC<ToastProps> = React.memo(observer((props: ToastProps) => {
+const Toast: React.FC<ToastProps> = React.memo(observer(({id = ''}) => {
+
+  const props = toastStore.getAllProps();
+
+  console.log(id);
 
   const {
-    id = '',
     message = 'Hello, I am toastik :)',
     outline = 'fill',
     type = 'default',
@@ -37,17 +39,13 @@ const Toast: React.FC<ToastProps> = React.memo(observer((props: ToastProps) => {
   const [currentAmount, setCurrentAmount ] = useState(1);
   const [hide, setHide] = useState(false);
 
-  toastStore.setAllProps(props);
-
-  // useEffect(() => {
-  //   return () => setHide(true);
-  // });
-
   const onClose = () => {
     setHide(true);
-    // setTimeout(() => {
-    // toastStore.removeToast(id);
-    // }, 3000);
+
+    //TODO:>>> Functionality for delete by timer
+    setTimeout(() => {
+      toastStore.removeToast(id);
+    }, 100);
   };
 
   const sliceMessage = (message.length > 50 ? message.slice(0, 50) + '...' : message);
@@ -86,17 +84,15 @@ const Toast: React.FC<ToastProps> = React.memo(observer((props: ToastProps) => {
   const messageStyles = { animationDuration: `${convertedAnimationSpeed / 100}s`};
 
   return (
-    <CSSTransitionGroup transitionName="example">
-      <div
-        className={messageClasses}
-        style={messageStyles}
-      >
-        {close ?
-          <CrossIcon className='crossIcon' onClick={onClose} />
-          : ''}
-        {sliceMessage}
-      </div>
-    </CSSTransitionGroup>
+    <div
+      className={messageClasses}
+      style={messageStyles}
+    >
+      {close ?
+        <CrossIcon className='crossIcon' onClick={onClose} />
+        : ''}
+      {sliceMessage}
+    </div>
   );
 }));
 

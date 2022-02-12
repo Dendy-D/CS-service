@@ -23,7 +23,16 @@
     white-space: nowrap;
 
     &.hide {
-      font-size: 40px;
+      animation-name: hide !important;
+    }
+    @keyframes hide {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(600px);
+      }
     }
 
     .crossIcon {
