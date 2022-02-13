@@ -1,6 +1,7 @@
 .component {
   height: calc(100vh - 80px);
-  width: 18%;
+  width: 20%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
