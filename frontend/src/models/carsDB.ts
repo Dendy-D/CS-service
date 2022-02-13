@@ -1,4 +1,6 @@
-const carsDataBase = [
+import { Car } from '../types/Car';
+
+const carsDataBase: Array<Car> = [
   {
     brand: 'Mercedes',
     model: 'Mercedes-Benz',
@@ -69,7 +71,7 @@ const carsDataBase = [
     brand: 'Porsche',
     model: '911 Carrera',
     complectation: '4 GTS',
-    color: 'White',
+    color: 'white',
     year: 2020,
     price: 12420000,
     enginePower: 490,
@@ -80,7 +82,7 @@ const carsDataBase = [
     brand: 'Porsche',
     model: 'Cayenne',
     complectation: 'Full',
-    color: 'White',
+    color: 'white',
     year: 2021,
     price: 9420000,
     enginePower: 350,
@@ -91,7 +93,7 @@ const carsDataBase = [
     brand: 'Porsche',
     model: 'Taycan',
     complectation: 'Full',
-    color: 'White',
+    color: 'white',
     year: 2022,
     price: 16420000,
     enginePower: 600,
