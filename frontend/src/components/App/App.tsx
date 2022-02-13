@@ -2,15 +2,15 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Auth from '../Auth';
-import Main from '../Main';
+import Layout from '../Layout';
 // import classes from './App.module.scss';
 
 const App: React.FC = () => (
   <Routes>
-    <Route path='/' element={<Auth />}>
-      <Route path='/auth' element={<Auth />} />
+    <Route path='/auth' element={<Auth />} />
+    <Route path='/' element={<Layout />}>
+
     </Route>
-    <Route path='/main' element={<Main />} />
   </Routes>
 );
 
