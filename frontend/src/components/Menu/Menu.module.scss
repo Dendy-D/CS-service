@@ -1,3 +1,26 @@
 .component {
-  
+  height: calc(100vh - 80px);
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  overflow-y: scroll;
+
+  a {
+    border-right: 2px solid #D7D5D9;
+    padding: 35px;
+    height: 20%;
+    cursor: pointer;
+    background-color: #eeeeee;
+    display: block;
+    font-size: 20px;
+    font-weight: 100;
+    color: #3D3E41;
+
+    &:hover {
+      background-color: #8ac1e63b;
+    }
+  }
+
 }
