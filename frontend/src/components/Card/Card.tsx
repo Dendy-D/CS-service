@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 
 import { priceUnifier } from '../../utils/priceUnifier';
 import { Car } from '../../types/Car';
 import classes from './Card.module.scss';
+import Modal from '../Modal';
 
-type CardProps = Car
+const Card: React.FC<Car> = (props: Car) => {
 
-const Card: React.FC<CardProps> = (props: Car) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const onModal = () => {
+    setShowModal(!showModal);
+  };
 
   const {
     brand,
@@ -22,25 +27,40 @@ const Card: React.FC<CardProps> = (props: Car) => {
   } = props;
 
   const colorClasses = clsx({
-    [classes.color]: true,
+    [classes.square]: true,
     [classes[color]]: !!color,
   });
 
   return (
-    <div className={classes.component}>
-      <div className={classes.cardHeader}>
-        <span className={classes.model}>{brand}</span>
-      </div>
-      <div className={classes.complectation}>{model}</div>
-      <img src={preview} alt="car" className={classes.preview} />
-      <div className={classes.cardBottom}>
-        <div className={classes.colors}>
-          <span>Цвета:</span>
-          <span className={colorClasses} />
+    <>
+      <div className={classes.component} onClick={onModal}>
+        <div className={classes.cardHeader}>
+          <span className={classes.brand}>{brand}</span>
         </div>
-        {priceUnifier(price)}
+        <div className={classes.model}>{model}</div>
+        <img src={preview} alt="car" className={classes.preview} />
+        <div className={classes.cardBottom}>
+          <div className={classes.colors}>
+            <span>Цвет:</span>
+            <span className={colorClasses} />
+          </div>
+          {priceUnifier(price)}
+        </div>
       </div>
-    </div>
+      {showModal && <Modal
+        brand={brand}
+        model={model}
+        complectation={complectation}
+        color={color}
+        year={year}
+        price={price}
+        enginePower={enginePower}
+        engineVolume={engineVolume}
+        preview={preview}
+        handlerClose={onModal}
+        showModal={showModal}
+      />}
+    </>
   );
 };
 

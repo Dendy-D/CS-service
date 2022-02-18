@@ -1,7 +1,6 @@
 .component {
   min-width: 250px;
   max-width: 400px;
-  // height: 300px;
   padding: 10px;
   color: #323237;
   display: flex;
@@ -11,13 +10,17 @@
   cursor: pointer;
   margin: 0 auto;
 
+  &:hover {
+    box-shadow: 0px 0px 13px -4px #223c5033;
+  }
+
   .preview {
     width: 100%;
     margin: 20px 0;
     border-radius: 5px;
   }
 
-  .complectation {
+  .model {
     margin: 0 auto;
     font-weight: 300;
   }
@@ -27,7 +30,7 @@
     justify-content: center;
     font-size: 20px;
 
-    & .model {
+    & .brand {
       font-weight: 300;
       font-size: 26px;
     }
@@ -49,27 +52,27 @@
     justify-content: space-between;
 
     .colors {
-      width: 90px;
+      width: 74px;
       display: flex;
       justify-content: space-between;
-    } 
 
-    .color {
-      display: block;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
+      .square {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
 
-      &.black {
-        background-color: black;
-      }
+        &.black {
+          background-color: black;
+        }
 
-      &.grey {
-        background-color: grey;
-      }
+        &.grey {
+          background-color: #62676F;
+        }
 
-      &.white {
-        background-color: ivory;
+        &.white {
+          background-color: #ebebeb;
+        }
       }
     }
   }
