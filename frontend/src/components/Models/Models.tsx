@@ -3,9 +3,9 @@ import uniqueId from 'lodash/uniqueId';
 
 import Card from '../Card';
 import carsDataBase from '../../models/carsDB';
-import classes from './CarsAvailable.module.scss';
+import classes from './Models.module.scss';
 
-const CarsAvailable: React.FC = () => (
+const Models: React.FC = () => (
   <div className={classes.component}>
     {carsDataBase.map((car, index) => (
       <Card
@@ -24,4 +24,4 @@ const CarsAvailable: React.FC = () => (
   </div>
 );
 
-export default CarsAvailable;
+export default Models;
