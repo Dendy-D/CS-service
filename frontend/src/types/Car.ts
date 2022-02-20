@@ -1,4 +1,5 @@
 export type Car = {
+  id?: string;
   brand: string;
   model: string;
   complectation: string;
@@ -8,5 +9,4 @@ export type Car = {
   enginePower: number;
   engineVolume: number;
   preview: string;
-
 }
