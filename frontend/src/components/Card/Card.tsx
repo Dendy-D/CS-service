@@ -44,7 +44,7 @@ const Card: React.FC<Car> = (props: Car) => {
             <span>Цвет:</span>
             <span className={colorClasses} />
           </div>
-          {priceUnifier(price)}
+          <div className={classes.price}>{priceUnifier(price)}</div>
         </div>
       </div>
       {showModal && <Modal

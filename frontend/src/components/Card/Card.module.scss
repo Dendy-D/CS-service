@@ -1,7 +1,7 @@
 .component {
   min-width: 250px;
   max-width: 400px;
-  padding: 10px;
+  padding: 20px;
   color: #323237;
   display: flex;
   flex-direction: column;
@@ -45,11 +45,16 @@
   }
 
   .cardBottom {
+    margin-bottom: 20px;
     text-align: center;
     font-size: 18px;
     color: #919191;
     display: flex;
     justify-content: space-between;
+
+    .price {
+      color: #323237;
+    }
 
     .colors {
       width: 74px;

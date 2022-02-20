@@ -2,6 +2,7 @@ import { Car } from '../types/Car';
 
 const carsDataBase: Array<Car> = [
   {
+    id: '12fd850svg6',
     brand: 'Mercedes',
     model: 'Mercedes-Benz',
     complectation: 'GLS-Class',
@@ -13,6 +14,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/6N45SYR/mers1.png`,
   },
   {
+    id: '30f7s648f6g',
     brand: 'Mercedes',
     model: 'Mercedes-Benz',
     complectation: 'A-Class',
@@ -24,6 +26,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/TkQSVyb/mers2.jpg`,
   },
   {
+    id: '69ghns54vs2',
     brand: 'Mercedes',
     model: 'Mercedes-Benz',
     complectation: 'AMG-GT',
@@ -35,6 +38,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/rmsFM3s/mers3.jpg`,
   },
   {
+    id: '7568hdxbs43',
     brand: 'Audi',
     model: 'A8',
     complectation: 'Full',
@@ -46,6 +50,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/N3YsFyS/audi1.jpg`,
   },
   {
+    id: '36dfv96hsnx',
     brand: 'Audi',
     model: 'A4',
     complectation: 'Avant',
@@ -57,6 +62,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/TwcBy0p/audi2.jpg`,
   },
   {
+    id: '354gsv9g5hs',
     brand: 'Audi',
     model: 'Q7',
     complectation: 'Full',
@@ -68,6 +74,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/Qc45Qsj/audi3.jpg`,
   },
   {
+    id: '345dfc2bsr4',
     brand: 'Porsche',
     model: '911 Carrera',
     complectation: '4 GTS',
@@ -79,6 +86,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/Xx7zY8x/porsche1.jpg`,
   },
   {
+    id: '95gsbxhj58h',
     brand: 'Porsche',
     model: 'Cayenne',
     complectation: 'Full',
@@ -90,6 +98,7 @@ const carsDataBase: Array<Car> = [
     preview: `https://i.ibb.co/RcZghm2/porsche2.jpg`,
   },
   {
+    id: '35dlthjvb4n',
     brand: 'Porsche',
     model: 'Taycan',
     complectation: 'Full',
