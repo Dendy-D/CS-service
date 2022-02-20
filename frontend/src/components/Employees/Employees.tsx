@@ -6,6 +6,7 @@ import { Employee } from '../../types/Employee';
 import { ReactComponent as EditIcon } from './icons/edit.svg';
 import { ReactComponent as DeleteIcon } from './icons/delete.svg';
 import EmployeeStore from '../../stores/EmployeeStore';
+import Warning from './Warning';
 
 import classes from './Employees.module.scss';
 
@@ -14,7 +15,9 @@ const Employees: React.FC = observer(() => {
   const [employeeNameForWarning, setEmployeeNameForWarning] = useState('');
   const [employeeIdForWarning, setEmployeeIdForWarning] = useState('');
 
-  const onDelete = (id: string) => {
+  const onDelete = (id: string, name: string) => {
+    setEmployeeNameForWarning(name);
+    setEmployeeIdForWarning(id);
     setShowWarning(true);
   };
 
@@ -51,11 +54,18 @@ const Employees: React.FC = observer(() => {
               <td>{employee.phoneNumber}</td>
               <td>{employee.position}</td>
               <td className={classes.delete}>
-                {<DeleteIcon className={classes.deleteIcon} onClick={() => onDelete(employee.id)} />}
+                {<DeleteIcon className={classes.deleteIcon} onClick={() => onDelete(employee.id, employee.fullName)} />}
               </td>
             </tr>
           ))}
         </tbody>
+        { showWarning && (
+          <Warning
+            closeWarning={closeWarning}
+            employeeName={employeeNameForWarning}
+            employeeId={employeeIdForWarning}
+          />
+        )}
       </table>
     </div>
   );
