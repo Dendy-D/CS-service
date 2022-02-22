@@ -7,6 +7,7 @@ const employeesDataBase = {
     email: 'anton-amelchenko@mail.ru',
     phoneNumber: '8-914-777-22-03',
     position: 'Администратор',
+    status: 'working'
   },
   sellers: [
     {
@@ -17,6 +18,7 @@ const employeesDataBase = {
       email: 'nikolay-ivanov@mail.ru',
       phoneNumber: '8-914-111-22-03',
       position: 'Продавец',
+      status: 'working'
     },
     {
       id: '3fg76k7dndn',
@@ -26,6 +28,7 @@ const employeesDataBase = {
       email: 'vasiliy-egorov@mail.ru',
       phoneNumber: '8-322-453-23-94',
       position: 'Продавец',
+      status: 'working'
     },
   ],
   marketers: [
@@ -37,6 +40,7 @@ const employeesDataBase = {
       email: 'mark-carry@mail.ru',
       phoneNumber: '8-914-232-22-13',
       position: 'Маркетолог',
+      status: 'working'
     },
     {
       id: '84n2dvscxdn',
@@ -46,6 +50,7 @@ const employeesDataBase = {
       email: 'dmitriy-shevchukv@mail.ru',
       phoneNumber: '8-111-223-56-94',
       position: 'Маркетолог',
+      status: 'working'
     },
   ],
   mechanics: [
@@ -57,6 +62,7 @@ const employeesDataBase = {
       email: 'misha-brat@mail.ru',
       phoneNumber: '8-800-231-22-13',
       position: 'Механик',
+      status: 'working'
     },
     {
       id: '06mmdvbnm67',
@@ -66,6 +72,7 @@ const employeesDataBase = {
       email: 'semenov-semen@mail.ru',
       phoneNumber: '8-567-765-56-94',
       position: 'Механик',
+      status: 'working'
     },
   ],
   accountants: [
@@ -77,6 +84,7 @@ const employeesDataBase = {
       email: 'nikola-tesla@mail.ru',
       phoneNumber: '8-999-777-66-55',
       position: 'Бухгалтер',
+      status: 'working'
     },
     {
       id: '12bfl6sx54s',
@@ -86,6 +94,7 @@ const employeesDataBase = {
       email: 'maricov-artur@mail.ru',
       phoneNumber: '8-123-321-44-44',
       position: 'Бухгалтер',
+      status: 'working'
     },
   ],
   governances: [
@@ -97,6 +106,7 @@ const employeesDataBase = {
       email: 'pomidorich-slavyan@mail.ru',
       phoneNumber: '8-123-123-12-34',
       position: 'Управляющий',
+      status: 'working'
     },
     {
       id: '5lfvx05683d',
@@ -106,6 +116,7 @@ const employeesDataBase = {
       email: 'antipov-kiril@mail.ru',
       phoneNumber: '8-222-222-22-22',
       position: 'Управляющий',
+      status: 'working'
     },
   ],
   systemAdministrators: [
@@ -117,6 +128,7 @@ const employeesDataBase = {
       email: 'boris-povis@mail.ru',
       phoneNumber: '8-345-678-32-43',
       position: 'Системный администратор',
+      status: 'working'
     },
     {
       id: 'bsg405msh3j',
@@ -126,6 +138,7 @@ const employeesDataBase = {
       email: 'antoha-ahotna@mail.ru',
       phoneNumber: '8-955-324-58-68',
       position: 'Системный администратор',
+      status: 'working'
     },
   ],
 };
