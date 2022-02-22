@@ -11,3 +11,5 @@ export type Employee = {
 export type EmployeeUpdated = Partial<Employee> & {
   [key: string]: string | number;
 };
+
+export type EmployeeForEdit = Omit<Employee, 'id' | 'login' | 'password'>;

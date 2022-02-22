@@ -5,6 +5,7 @@ import Auth from '../Auth';
 import Models from '../Models';
 import Layout from '../Layout';
 import Employees from '../Employees';
+import EmployeeForm from '../Employees/EmployeeForm';
 
 const App: React.FC = () => (
   <Routes>
@@ -12,6 +13,7 @@ const App: React.FC = () => (
     <Route path='/' element={<Layout />}>
       <Route path='models' element={<Models />} />
       <Route path='employees' element={<Employees />} />
+      <Route path='employees/:id' element={<EmployeeForm /> } />
     </Route>
   </Routes>
 );
