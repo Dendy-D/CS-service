@@ -6,10 +6,11 @@ export type Employee = {
   email: string;
   phoneNumber: string;
   position: string;
+  status: 'fired' | 'working';
 };
 
-export type EmployeeUpdated = Partial<Employee> & {
+export type EmployeeUpdated = Employee & {
   [key: string]: string | number;
 };
 
-export type EmployeeForEdit = Omit<Employee, 'id' | 'login' | 'password'>;
+export type EmployeeForEdit = Omit<Employee, 'id' | 'login' | 'password' | 'status'>;
