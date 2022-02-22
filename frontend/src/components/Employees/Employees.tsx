@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import uniqueId from 'lodash/uniqueId';
 import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
 
 import { Employee } from '../../types/Employee';
 import { ReactComponent as EditIcon } from './icons/edit.svg';
@@ -15,6 +16,8 @@ const Employees: React.FC = observer(() => {
   const [employeeNameForWarning, setEmployeeNameForWarning] = useState('');
   const [employeeIdForWarning, setEmployeeIdForWarning] = useState('');
 
+  const navigate = useNavigate();
+
   const onDelete = (id: string, name: string) => {
     setEmployeeNameForWarning(name);
     setEmployeeIdForWarning(id);
@@ -27,6 +30,10 @@ const Employees: React.FC = observer(() => {
 
   const addNewEmployee = () => {
     console.log(1);
+  };
+
+  const editEmployee = (id: string) => {
+    navigate(id);
   };
 
   return (
@@ -47,7 +54,7 @@ const Employees: React.FC = observer(() => {
           {EmployeeStore.employees.map((employee: Employee, index) => (
             <tr key={uniqueId(`employee_${index}`)}>
               <td className={classes.edit}>
-                {<EditIcon className={classes.editIcon} onClick={addNewEmployee} />}
+                {<EditIcon className={classes.editIcon} onClick={() => editEmployee(employee.id)} />}
               </td>
               <td className={classes.fullName}>{employee.fullName}</td>
               <td>{employee.email}</td>
