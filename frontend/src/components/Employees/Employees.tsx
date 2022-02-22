@@ -18,7 +18,7 @@ const Employees: React.FC = observer(() => {
 
   const navigate = useNavigate();
 
-  const onDelete = (id: string, name: string) => {
+  const dismissalHandle = (id: string, name: string) => {
     setEmployeeNameForWarning(name);
     setEmployeeIdForWarning(id);
     setShowWarning(true);
@@ -46,7 +46,7 @@ const Employees: React.FC = observer(() => {
             <th>Email</th>
             <th>Номер телефона</th>
             <th className={classes.positionField}>Должность</th>
-            <th className={classes.deleteField}/>
+            <th className={classes.deleteField}>Статус</th>
           </tr>
         </thead>
 
@@ -61,7 +61,14 @@ const Employees: React.FC = observer(() => {
               <td>{employee.phoneNumber}</td>
               <td>{employee.position}</td>
               <td className={classes.delete}>
-                {<DeleteIcon className={classes.deleteIcon} onClick={() => onDelete(employee.id, employee.fullName)} />}
+                { employee.status === 'working' ?
+                  (
+                    <DeleteIcon
+                      className={classes.deleteIcon}
+                      onClick={() => dismissalHandle(employee.id, employee.fullName)}
+                    />
+                  ) : <span className={classes.fired}>Уволен</span>
+                }
               </td>
             </tr>
           ))}

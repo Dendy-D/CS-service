@@ -5,14 +5,18 @@ import { getDataFromFakeDB } from '../../utils/parserFakeDB';
 import { Employee, EmployeeForEdit, EmployeeUpdated } from '../../types/Employee';
 
 class EmployeeStore {
-  employees = getDataFromFakeDB(employeesDataBase);
+  employees: Array<Employee> = getDataFromFakeDB(employeesDataBase);
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  removeEmployee(id: string) {
-    this.employees = this.employees.filter((employee: Employee) => employee.id !== id);
+  dismissalEmployee(id: string) {
+    this.employees.map((employee: Employee) => {
+      if (employee.id === id) {
+        employee.status = 'fired';
+      }
+    });
   }
 
   addEmployee(employee: Employee) {
@@ -32,22 +36,22 @@ class EmployeeStore {
   }
 
   editEmployee(employeeEdited: EmployeeForEdit, id: string) {
-    const employee: EmployeeUpdated = this.getEmployeeById(id);
+    const editableEmployee: EmployeeUpdated = this.getEmployeeById(id);
 
     const indexInitialEmployee: Array<number> = [];
 
-    this.employees.map((el, id) => {
-      if (el.id === employee.id) {
-        indexInitialEmployee.push(id);
+    this.employees.map((employee: Employee, index: number) => {
+      if (employee.id === editableEmployee.id) {
+        indexInitialEmployee.push(index);
         return;
       }
     });
 
     Object.entries(employeeEdited).forEach(([key, value]: Array<string>) => {
-      employee[key] = value;
+      editableEmployee[key] = value;
     });
 
-    this.employees[indexInitialEmployee[0]] = employee;
+    this.employees[indexInitialEmployee[0]] = editableEmployee;
   }
 
 }
