@@ -9,7 +9,7 @@
     border: 1px solid #eee;
     width: 100%;
     margin: 40px 40px;
-    table-layout:unset;
+    table-layout: unset;
 
     & th {
       font-weight: bold;
@@ -22,10 +22,15 @@
       padding: 20px 40px;
       border: 1px solid #eee;
       text-align: left;
+      min-height: 74px !important;
+    }
+
+    & tbody tr {
+      height: 76px;
     }
     
     & tbody tr:nth-child(odd) {
-      background: #fff;
+      background: #fff;   
     }
 
     & tbody tr:nth-child(even) {
@@ -37,7 +42,7 @@
     }
 
     .deleteField {
-      width: 100px;
+      width: 138px;
     }
 
     .positionField {
@@ -63,6 +68,10 @@
 
     .delete {
       text-align: center;
+
+      .fired {
+        color: red;
+      }
 
       .deleteIcon {
         width: 25px;
