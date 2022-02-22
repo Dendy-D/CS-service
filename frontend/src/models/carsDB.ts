@@ -3,9 +3,9 @@ import { Car } from '../types/Car';
 const carsDataBase: Array<Car> = [
   {
     id: '12fd850svg6',
-    brand: 'Mercedes',
-    model: 'Mercedes-Benz',
-    complectation: 'GLS-Class',
+    brand: 'Mercedes-Benz',
+    model: 'GLS-Class',
+    complectation: 'Full',
     color: 'black',
     year: 2022,
     price: 10890000,
@@ -15,9 +15,9 @@ const carsDataBase: Array<Car> = [
   },
   {
     id: '30f7s648f6g',
-    brand: 'Mercedes',
-    model: 'Mercedes-Benz',
-    complectation: 'A-Class',
+    brand: 'Mercedes-Benz',
+    model: 'A-Class',
+    complectation: 'Basic',
     color: 'black',
     year: 2021,
     price: 2920000,
@@ -27,9 +27,9 @@ const carsDataBase: Array<Car> = [
   },
   {
     id: '69ghns54vs2',
-    brand: 'Mercedes',
-    model: 'Mercedes-Benz',
-    complectation: 'AMG-GT',
+    brand: 'Mercedes-Benz',
+    model: 'AMG-GT',
+    complectation: 'Full',
     color: 'white',
     year: 2020,
     price: 10890000,
