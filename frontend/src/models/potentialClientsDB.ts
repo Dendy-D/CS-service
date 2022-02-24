@@ -1,6 +1,6 @@
-import { PotencialClient } from '../types/PotencialClient';
+import { PotentialClient } from '../types/PotentialClient';
 
-const potencialClientsDataBase: Array<PotencialClient> = [
+const potentialClientsDataBase: Array<PotentialClient> = [
   {
     id: 'skj6f3bas83',
     fullName: 'Васнецов Николай Иванович',
@@ -74,4 +74,4 @@ const potencialClientsDataBase: Array<PotencialClient> = [
 
 ];
 
-export default potencialClientsDataBase;
+export default potentialClientsDataBase;

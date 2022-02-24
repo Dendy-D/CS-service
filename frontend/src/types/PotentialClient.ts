@@ -1,4 +1,4 @@
-export type PotencialClient = {
+export type PotentialClient = {
   id: string;
   fullName: string;
   phoneNumber: string;

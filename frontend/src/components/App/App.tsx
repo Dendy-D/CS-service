@@ -6,6 +6,7 @@ import Models from '../Models';
 import Layout from '../Layout';
 import Employees from '../Employees';
 import EmployeeForm from '../Employees/EmployeeForm';
+import Clients from '../Clients';
 
 const App: React.FC = () => (
   <Routes>
@@ -14,6 +15,9 @@ const App: React.FC = () => (
       <Route path='models' element={<Models />} />
       <Route path='employees' element={<Employees />} />
       <Route path='employees/:id' element={<EmployeeForm /> } />
+      <Route path='clients' element={<Clients />}>
+
+      </Route>
     </Route>
   </Routes>
 );
