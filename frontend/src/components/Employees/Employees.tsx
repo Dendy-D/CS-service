@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import uniqueId from 'lodash/uniqueId';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
+import { toJS } from 'mobx';
 
 import { Employee } from '../../types/Employee';
-import { ReactComponent as EditIcon } from './icons/edit.svg';
-import { ReactComponent as DeleteIcon } from './icons/delete.svg';
 import EmployeeStore from '../../stores/EmployeeStore';
 import Warning from './Warning';
+import Table from '../Table';
 
 import classes from './Employees.module.scss';
 
@@ -36,51 +35,56 @@ const Employees: React.FC = observer(() => {
     navigate(id);
   };
 
+  const headers = [
+    {
+      class: 'editField',
+    },
+    {
+      name: 'ФИО',
+    },
+    {
+      name: 'Email',
+    },
+    {
+      name: 'Номер телефон',
+    },
+    {
+      name: 'Должность',
+      class: 'positionField',
+    },
+    {
+      name: 'Статус',
+      class: 'deleteField',
+    },
+  ];
+
+  const span = <span className={classes.fired}>Уволен</span>;
+
+  const conditionForDelete = (value: Employee) => value.status === 'working';
+
+  const body = EmployeeStore.employees;
+
+  console.log(toJS(headers));
+
   return (
     <div className={classes.component}>
-      <table className={classes.table}>
-        <thead>
-          <tr>
-            <th className={classes.editField} />
-            <th>ФИО</th>
-            <th>Email</th>
-            <th>Номер телефона</th>
-            <th className={classes.positionField}>Должность</th>
-            <th className={classes.deleteField}>Статус</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {EmployeeStore.employees.map((employee: Employee, index) => (
-            <tr key={uniqueId(`employee_${index}`)}>
-              <td className={classes.edit}>
-                {<EditIcon className={classes.editIcon} onClick={() => editEmployee(employee.id)} />}
-              </td>
-              <td className={classes.fullName}>{employee.fullName}</td>
-              <td>{employee.email}</td>
-              <td>{employee.phoneNumber}</td>
-              <td>{employee.position}</td>
-              <td className={classes.delete}>
-                { employee.status === 'working' ?
-                  (
-                    <DeleteIcon
-                      className={classes.deleteIcon}
-                      onClick={() => dismissalHandle(employee.id, employee.fullName)}
-                    />
-                  ) : <span className={classes.fired}>Уволен</span>
-                }
-              </td>
-            </tr>
-          ))}
-        </tbody>
-        { showWarning && (
-          <Warning
-            closeWarning={closeWarning}
-            employeeName={employeeNameForWarning}
-            employeeId={employeeIdForWarning}
-          />
-        )}
-      </table>
+      <Table
+        tableHeaders={headers}
+        edit={true}
+        tableBody={body}
+        handleOfEdit={editEmployee}
+        remove={true}
+        handleOfRemove={dismissalHandle}
+        conditionForDelete={conditionForDelete}
+        expressionInsteadOfDelete={span}
+      />
+      { showWarning && (
+        <Warning
+          closeWarning={closeWarning}
+          employeeName={employeeNameForWarning}
+          employeeId={employeeIdForWarning}
+        />
+      )}
     </div>
   );
 });
