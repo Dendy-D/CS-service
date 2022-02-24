@@ -1,0 +1,70 @@
+.component {
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+  width: 100%;
+
+  .wrapper {
+    width: 50%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3D3E41;
+    
+    & .title {
+      font-weight: 300;
+    }
+    
+    & div {
+      min-width: 580px;
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      align-items: flex-end;
+    }
+
+    label {
+      min-width: 140px;
+      font-weight: 300;
+    }
+    
+
+    & input {
+      font-weight: 600;
+      min-width: 400px;
+      height: 40px;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #d4d4d4;
+      background-color: #f5f5f5;
+      margin-left: 40px;
+      padding-left: 5px;
+      color: #3D3E41;
+      
+      &:hover {
+        border: none;
+        border-bottom: 2px solid #a3a5a7;
+      }
+
+      &:focus {
+        border: none;
+        border-bottom: 2px solid #2588FA;
+      }
+    }
+
+    .editButton {
+      width: 100%;
+      border: none;
+      color: white;
+      background: #2A90F8;
+      padding: 10px 60px;
+      cursor: pointer;
+
+      &:hover {
+        background:#0881fa;
+      }
+    }
+
+  }
+}
