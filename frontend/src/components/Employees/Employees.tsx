@@ -64,8 +64,6 @@ const Employees: React.FC = observer(() => {
 
   const body = EmployeeStore.employees;
 
-  console.log(toJS(headers));
-
   return (
     <div className={classes.component}>
       <Table
