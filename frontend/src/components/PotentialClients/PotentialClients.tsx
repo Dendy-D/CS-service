@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Table from '../Table';
 import PotentialClientsStore from '../../stores/PotentialClientsStore';
@@ -13,6 +14,12 @@ const PotentialClients: React.FC = () => {
     setPotentialClientNameForWarning(name);
     setPotentialClientIdForWarning(id);
     setShowWarning(true);
+  };
+
+  const navigate = useNavigate();
+
+  const editPotentialClient = (id: string) => {
+    navigate(id);
   };
 
   const headers = [
@@ -33,7 +40,6 @@ const PotentialClients: React.FC = () => {
       name: 'Лизинг',
     },
     {
-      name: 'ss',
       class: 'deleteField',
     },
   ];
@@ -51,7 +57,7 @@ const PotentialClients: React.FC = () => {
         handleOfRemove={removeHandle}
         conditionForDelete={() => true}
         edit={true}
-        handleOfEdit={}
+        handleOfEdit={editPotentialClient}
       />
     </div>
   );
