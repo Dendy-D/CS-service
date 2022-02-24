@@ -31,6 +31,28 @@ const employeesDataBase = {
       status: 'working'
     },
   ],
+  testDriver: [
+    {
+      id: '2fsc47fgndb',
+      login: 'kolMax',
+      password: 123321,
+      fullName: 'Колчаков Максим Олегович',
+      email: 'kolchakov-max@mail.ru',
+      phoneNumber: '8-934-122-45-32',
+      position: 'Тест-драйвер',
+      status: 'working'
+    },
+    {
+      id: 'af4789jhfm9',
+      login: 'manukkNar',
+      password: 123321,
+      fullName: 'Манукян Нарек Каренович',
+      email: 'narek-manuk@mail.ru',
+      phoneNumber: '8-566-342-08-99',
+      position: 'Тест-драйвер',
+      status: 'working'
+    },
+  ],
   marketers: [
     {
       id: '09g7dvbfnl8',
