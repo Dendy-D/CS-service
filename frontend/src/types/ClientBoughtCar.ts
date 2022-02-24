@@ -5,7 +5,13 @@ export type ClientBoughtCar = {
   carId: string;
   contractOfSaleId: string;
   dateOfBirst: string;
-  sex: 'male' | 'female';
+  sex: 'Мужской' | 'Женский';
   placeOfBirth: string;
   seriesAndNumbers: string;
 };
+
+export type ClientBoughtCarUpdated = ClientBoughtCar & {
+  [key: string]: string;
+}
+
+export type ClientBoughtCarForEdit = Omit<ClientBoughtCar, 'id'>
