@@ -38,7 +38,15 @@ const Table = <T extends object>(props: TableProps<T>): ReactElement | null => {
     expressionInsteadOfDelete,
   } = props;
 
-  const privateData = ['id', 'login', 'password', 'status'] as const;
+  const privateData = [
+    'id',
+    'login',
+    'password',
+    'status',
+    'dateOfBirst',
+    'sex',
+    'placeOfBirth',
+    'seriesAndNumbers'] as const;
 
   type PrivateData = (typeof privateData)[number];
 
