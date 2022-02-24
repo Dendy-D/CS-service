@@ -9,6 +9,8 @@ import EmployeeForm from '../Employees/EmployeeForm';
 import Clients from '../Clients';
 import PotentialClients from '../PotentialClients';
 import PotentialClientForm from '../PotentialClients/PotentialClientForm';
+import ClientsBoughtCar from '../ClientsBoughtCar';
+import ClientsBoughtCarForm from '../ClientsBoughtCar/ClientsBoughtCarForm';
 
 const App: React.FC = () => (
   <Routes>
@@ -20,6 +22,8 @@ const App: React.FC = () => (
       <Route path='clients' element={<Clients />} />
       <Route path='potential-clients' element={<PotentialClients /> } />
       <Route path='potential-clients/:id' element={<PotentialClientForm /> } />
+      <Route path='clients-bought-car' element={<ClientsBoughtCar /> } />
+      <Route path='clients-bought-car/:id' element={<ClientsBoughtCarForm /> } />
     </Route>
   </Routes>
 );

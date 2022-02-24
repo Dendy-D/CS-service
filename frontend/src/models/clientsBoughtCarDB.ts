@@ -1,6 +1,6 @@
 import { ClientBoughtCar } from '../types/ClientBoughtCar';
 
-const potencialClientsDataBase: Array<ClientBoughtCar> = [
+const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
   {
     id: 'skj6f3bas83',
     fullName: 'Затыкина Татьяна Ивановна',
@@ -8,7 +8,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '12fd850svg6',
     contractOfSaleId: 'sgd893gsx01',
     dateOfBirst: '10-11-1998',
-    sex: 'female',
+    sex: 'Женский',
     placeOfBirth: 'Moscow',
     seriesAndNumbers: '1452 123541',
   },
@@ -19,18 +19,18 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '30f7s648f6g',
     contractOfSaleId: '3fg3s74gbd8',
     dateOfBirst: '15-07-2000',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Екатеренбург',
     seriesAndNumbers: '5324 324365',
   },
   {
     id: '0ijvsdb3483',
-    fullName: 'Конч Владислав Ярославович',
+    fullName: 'Колосов Владислав Ярославович',
     phoneNumber: '8-956-435-10-98',
     carId: '345dfc2bsr4',
     contractOfSaleId: '3ds84hdn6st',
     dateOfBirst: '09-05-1967',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Благовещенск',
     seriesAndNumbers: '1293 253894',
   },
@@ -41,7 +41,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '35dlthjvb4n',
     contractOfSaleId: 'sfdvx64rs9k',
     dateOfBirst: '04-04-1999',
-    sex: 'female',
+    sex: 'Женский',
     placeOfBirth: 'Москва',
     seriesAndNumbers: '1274 253946',
   },
@@ -52,7 +52,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '354gsv9g5hs',
     contractOfSaleId: '3fdgns7gr4n',
     dateOfBirst: '24-10-2005',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Санкт-Петербург',
     seriesAndNumbers: '2341 243612',
   },
@@ -63,7 +63,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '36dfv96hsnx',
     contractOfSaleId: '3fdns6h4gdb',
     dateOfBirst: '11-09-1976',
-    sex: 'female',
+    sex: 'Женский',
     placeOfBirth: 'Москва',
     seriesAndNumbers: '2142 125374',
   },
@@ -74,7 +74,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '7568hdxbs43',
     contractOfSaleId: '45dgfn064f5',
     dateOfBirst: '30-03-1994',
-    sex: 'female',
+    sex: 'Женский',
     placeOfBirth: 'Воронеж',
     seriesAndNumbers: '6241 235142',
   },
@@ -85,7 +85,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '69ghns54vs2',
     contractOfSaleId: 'efsr4j5nfgd',
     dateOfBirst: '23-09-1987',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Волгоград',
     seriesAndNumbers: '2634 614234',
   },
@@ -96,7 +96,7 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '30f7s648f6g',
     contractOfSaleId: '4gdnf754hsc',
     dateOfBirst: '22-05-2003',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Москва',
     seriesAndNumbers: '2534 254715',
   },
@@ -107,11 +107,11 @@ const potencialClientsDataBase: Array<ClientBoughtCar> = [
     carId: '12fd850svg6',
     contractOfSaleId: '4rdfsv5n60h',
     dateOfBirst: '17-05-1995',
-    sex: 'male',
+    sex: 'Мужской',
     placeOfBirth: 'Москва',
     seriesAndNumbers: '1380 980234',
   },
 
 ];
 
-export default potencialClientsDataBase;
+export default clientBoughtCarDataBase;
