@@ -11,6 +11,8 @@ import PotentialClients from '../PotentialClients';
 import PotentialClientForm from '../PotentialClients/PotentialClientForm';
 import ClientsBoughtCar from '../ClientsBoughtCar';
 import ClientsBoughtCarForm from '../ClientsBoughtCar/ClientsBoughtCarForm';
+import TestDrive from '../TestDrive';
+import TestDriveForm from '../TestDrive/TestDriveForm';
 
 const App: React.FC = () => (
   <Routes>
@@ -24,6 +26,8 @@ const App: React.FC = () => (
       <Route path='potential-clients/:id' element={<PotentialClientForm /> } />
       <Route path='clients-bought-car' element={<ClientsBoughtCar /> } />
       <Route path='clients-bought-car/:id' element={<ClientsBoughtCarForm /> } />
+      <Route path='test-drive' element={<TestDrive />} />
+      <Route path='test-drive/:id' element={<TestDriveForm />} />
     </Route>
   </Routes>
 );
