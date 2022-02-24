@@ -22,7 +22,7 @@ type TableProps<T> = {
    // Optiomal condition for delete
   conditionForDelete: (value: any) => boolean;
   // Expression instead of DeleteIcon
-  expressionInsteadOfDelete: React.ReactNode;
+  expressionInsteadOfDelete?: React.ReactNode;
 }
 
 const Table = <T extends object>(props: TableProps<T>): ReactElement | null => {
