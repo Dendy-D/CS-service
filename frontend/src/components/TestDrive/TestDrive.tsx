@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import TestDriveEntryesStore from '../../stores/TestDriveEntryesStore';
+import Warning from '../Warning';
 import Table from '../Table';
 import classes from './TestDrive.module.scss';
 
 const TestDrive: React.FC = () => {
   const [showWarning, setShowWarning] = useState(false);
-  const [potentialClientNameForWarning, setPotentialClientNameForWarning] = useState('');
-  const [potentialClientIdForWarning, setPotentialClientIdForWarning] = useState('');
+  const [testDriveNameForWarning, setTestDriveNameForWarning] = useState('');
+  const [testDriveIdForWarning, setTestDriveIdForWarning] = useState('');
 
   const removeHandle = (id: string, name: string) => {
-    setPotentialClientNameForWarning(name);
-    setPotentialClientIdForWarning(id);
+    setTestDriveNameForWarning(name);
+    setTestDriveIdForWarning(id);
     setShowWarning(true);
   };
 
@@ -20,6 +21,10 @@ const TestDrive: React.FC = () => {
 
   const editClientBoughtCar = (id: string) => {
     navigate(id);
+  };
+
+  const closeWarning = () => {
+    setShowWarning(false);
   };
 
   const body = TestDriveEntryesStore.testDriveEntryes;
@@ -57,6 +62,15 @@ const TestDrive: React.FC = () => {
         handleOfRemove={removeHandle}
         conditionForDelete={() => true}
       />
+      { showWarning && (
+        <Warning
+          warningMessage='Удалить запись'
+          actionMessage='Удалить'
+          closeWarning={closeWarning}
+          removeFunction={() => TestDriveEntryesStore.deleteTestDriveEntry(testDriveIdForWarning)}
+          entityName={testDriveNameForWarning}
+        />
+      )}
     </div>
   );
 };
