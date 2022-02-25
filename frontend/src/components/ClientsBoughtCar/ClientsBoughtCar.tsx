@@ -3,16 +3,17 @@ import { useNavigate } from 'react-router-dom';
 
 import Table from '../Table';
 import ClientsBoughtCarStore from '../../stores/ClientsBoughtCarStore';
+import Warning from '../Warning';
 import classes from './ClientsBoughtCar.module.scss';
 
 const ClientsBoughtCar: React.FC = () => {
   const [showWarning, setShowWarning] = useState(false);
-  const [potentialClientNameForWarning, setPotentialClientNameForWarning] = useState('');
-  const [potentialClientIdForWarning, setPotentialClientIdForWarning] = useState('');
+  const [clientBoughtCarNameForWarning, setClientBoughtCarNameForWarning] = useState('');
+  const [clientBoughtCarIdForWarning, setClientBoughtCarIdForWarning] = useState('');
 
   const removeHandle = (id: string, name: string) => {
-    setPotentialClientNameForWarning(name);
-    setPotentialClientIdForWarning(id);
+    setClientBoughtCarNameForWarning(name);
+    setClientBoughtCarIdForWarning(id);
     setShowWarning(true);
   };
 
@@ -20,6 +21,10 @@ const ClientsBoughtCar: React.FC = () => {
 
   const editClientBoughtCar = (id: string) => {
     navigate(id);
+  };
+
+  const closeWarning = () => {
+    setShowWarning(false);
   };
 
   const headers = [
@@ -57,6 +62,15 @@ const ClientsBoughtCar: React.FC = () => {
         handleOfRemove={removeHandle}
         conditionForDelete={() => true}
       />
+      { showWarning && (
+        <Warning
+          warningMessage='Вы уверены, что хотите удалить клиента:'
+          actionMessage='Удалить'
+          closeWarning={closeWarning}
+          removeFunction={() => ClientsBoughtCarStore.deleteClientBoughtCart(clientBoughtCarIdForWarning)}
+          entityName={clientBoughtCarNameForWarning}
+        />
+      )}
     </div>
   );
 };

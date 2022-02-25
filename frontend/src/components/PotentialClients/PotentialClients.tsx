@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Table from '../Table';
 import PotentialClientsStore from '../../stores/PotentialClientsStore';
+import Warning from '../Warning';
 import classes from './PotentialClients.module.scss';
 
 const PotentialClients: React.FC = () => {
@@ -20,6 +21,10 @@ const PotentialClients: React.FC = () => {
 
   const editPotentialClient = (id: string) => {
     navigate(id);
+  };
+
+  const closeWarning = () => {
+    setShowWarning(false);
   };
 
   const headers = [
@@ -59,6 +64,15 @@ const PotentialClients: React.FC = () => {
         edit={true}
         handleOfEdit={editPotentialClient}
       />
+      { showWarning && (
+        <Warning
+          warningMessage='Вы уверены, что хотите удалить клиента:'
+          actionMessage='Удалить'
+          closeWarning={closeWarning}
+          removeFunction={() => PotentialClientsStore.deletePotentialClient(potentialClientIdForWarning)}
+          entityName={potentialClientNameForWarning}
+        />
+      )}
     </div>
   );
 };
