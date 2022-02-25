@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
-import { toJS } from 'mobx';
 
 import { Employee } from '../../types/Employee';
 import EmployeeStore from '../../stores/EmployeeStore';
-import Warning from './Warning';
+import Warning from '../Warning';
 import Table from '../Table';
 
 import classes from './Employees.module.scss';
@@ -78,9 +77,11 @@ const Employees: React.FC = observer(() => {
       />
       { showWarning && (
         <Warning
+          warningMessage='Вы уверены что хотите уволить сотрудника:'
           closeWarning={closeWarning}
-          employeeName={employeeNameForWarning}
-          employeeId={employeeIdForWarning}
+          entityName={employeeNameForWarning}
+          removeFunction={() => EmployeeStore.dismissalEmployee(employeeIdForWarning)}
+          actionMessage='Уволить'
         />
       )}
     </div>
