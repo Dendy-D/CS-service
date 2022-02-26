@@ -1,7 +1,8 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
 import potentialClientsDataBase from '../../models/potentialClientsDB';
-import { PotentialClient, PotentialClientForEdit, PotentialClientUpdated } from '../../types/PotentialClient';
+import { PotentialClient, PotentialClientForForm, PotentialClientUpdated } from '../../types/PotentialClient';
+import { uniqueId } from '../../utils/generatorId';
 
 class PotentialClientsStore {
 
@@ -15,8 +16,16 @@ class PotentialClientsStore {
     this.potentialClients = this.potentialClients.filter((client: PotentialClient) => client.id !== id);
   }
 
-  addPotentialClient(client: PotentialClient) {
-    this.potentialClients.push(client);
+  addPotentialClient(client: PotentialClientForForm) {
+    const newPotentialClient: PotentialClient = {
+      fullName: client.fullName,
+      phoneNumber: client.phoneNumber,
+      potencialCarId: client.potencialCarId,
+      leasing: client.leasing,
+      id: uniqueId(),
+    };
+
+    this.potentialClients.push(newPotentialClient);
   }
 
   getPotentialClientById(id: string) {
@@ -31,7 +40,7 @@ class PotentialClientsStore {
     return toJS(result);
   }
 
-  editPotentialClient(potentialClientEdited: PotentialClientForEdit, id: string) {
+  editPotentialClient(potentialClientEdited: PotentialClientForForm, id: string) {
     const editablePotentialClient: PotentialClientUpdated = this.getPotentialClientById(id);
 
     const indexInitialPotentialClient: Array<number> = [];
