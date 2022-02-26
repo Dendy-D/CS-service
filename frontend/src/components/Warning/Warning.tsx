@@ -5,7 +5,7 @@ import classes from './Warning.module.scss';
 type WarningProps = {
   closeWarning: () => void;
   warningMessage: string;
-  entityName: string;
+  entityName?: string;
   actionMessage: string;
   removeFunction: () => void;
 }
