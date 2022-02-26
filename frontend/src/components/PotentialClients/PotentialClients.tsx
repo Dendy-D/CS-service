@@ -24,6 +24,10 @@ const PotentialClients: React.FC = () => {
     navigate(id);
   };
 
+  const addNewClient = () => {
+    navigate('add');
+  };
+
   const closeWarning = () => {
     setShowWarning(false);
   };
@@ -55,7 +59,7 @@ const PotentialClients: React.FC = () => {
   return (
     <div className={classes.component}>
       <div className={classes.content}>
-        <FiltersPanel />
+        <FiltersPanel addEntity={addNewClient} />
         <Table
           tableHeaders={headers}
           tableBody={body}
