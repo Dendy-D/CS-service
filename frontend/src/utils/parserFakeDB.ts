@@ -1,5 +1,3 @@
-import { EmployeeUpdated, Employee } from '../types/Employee';
-
 export const getDataFromFakeDB = (obj: any) => {
   const result = [];
 
