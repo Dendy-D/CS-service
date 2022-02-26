@@ -5,6 +5,7 @@ import { getDataFromFakeDB } from '../../utils/parserFakeDB';
 import { generatorLogin } from '../../utils/generatorLogin';
 import { uniqueId } from '../../utils/generatorId';
 import { Employee, EmployeeForForm, EmployeeUpdated } from '../../types/Employee';
+import { CurrentUserForEmployeeStore } from '../../types/Auth';
 
 class EmployeesStore {
   employees: Array<Employee> = getDataFromFakeDB(employeesDataBase);
@@ -28,7 +29,7 @@ class EmployeesStore {
       phoneNumber: employee.phoneNumber,
       position: employee.position,
       login: generatorLogin(employee.fullName),
-      password: 123321,
+      password: '123321',
       status: 'working',
       id: uniqueId(),
     };
@@ -40,6 +41,20 @@ class EmployeesStore {
 
     this.employees.forEach((employee: Employee) => {
       if (employee.id === id) {
+        result = employee;
+      }
+    });
+
+    return toJS(result);
+  }
+
+  getEmployeeByAuth(currentUser: CurrentUserForEmployeeStore) {
+    let result: any;
+
+    this.employees.forEach((employee: Employee) => {
+      if (employee.login === currentUser.login
+        && employee.password === currentUser.password
+        && employee.position === currentUser.position) {
         result = employee;
       }
     });
