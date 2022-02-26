@@ -2,10 +2,11 @@ import React from 'react';
 
 import classes from './FiltersPanel.module.scss';
 
-const FiltersPanel = () => {
+const FiltersPanel: React.FC = () => {
   return (
     <div className={classes.component}>
-      <h1>sjs</h1>
+      lalal
+      <div className={classes.bottomLine}/>
     </div>
   );
 };
