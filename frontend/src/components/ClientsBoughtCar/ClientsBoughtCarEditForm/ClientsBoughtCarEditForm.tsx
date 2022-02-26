@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { ClientBoughtCar } from '../../../types/ClientBoughtCar';
 import ClientsBoughtCarStore from '../../../stores/ClientsBoughtCarStore';
-import classes from './ClientsBoughtCarForm.module.scss';
+import classes from './ClientsBoughtCarEditForm.module.scss';
 
 type Form = {
   fullName: string;
@@ -16,7 +16,7 @@ type Form = {
   seriesAndNumbers: string;
 };
 
-const ClientsBoughtCarForm: React.FC = () => {
+const ClientsBoughtCarEditForm: React.FC = () => {
   const { id = '' } = useParams();
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const ClientsBoughtCarForm: React.FC = () => {
   return (
     <div className={classes.component}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>Редактирование данных потенциального клиента</h1>
+        <h1 className={classes.title}>Редактирование данных клиента, который купил автомобиль</h1>
         <div>
           <label htmlFor="fullName">ФИО</label>
           <input
@@ -120,4 +120,4 @@ const ClientsBoughtCarForm: React.FC = () => {
   );
 };
 
-export default ClientsBoughtCarForm;
+export default ClientsBoughtCarEditForm;
