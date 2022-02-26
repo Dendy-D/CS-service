@@ -4,6 +4,11 @@
   overflow-y: scroll;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+
+  .content {
+    width: 90%;
+  }
 
   .fired {
     color: red;
