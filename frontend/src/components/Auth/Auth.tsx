@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
-import html2canvas from 'html2canvas';
 
-// import employeesDataBase from '../../models/employeesDB';
+import AuthStore from '../../stores/AuthStore';
+import EmployeesStore from '../../stores/EmployeesStore';
 import { ToastContainer, toastik } from '../toastik';
 import classes from './Auth.module.scss';
-import axios from 'axios';
-import App from '../App';
 
 const Auth: React.FC = () => {
+  const navigate = useNavigate();
+
   const options = [
     { value: 'admin', label: 'Администратор', selected: true },
     { value: 'seller', label: 'Продавец' },
@@ -16,6 +17,7 @@ const Auth: React.FC = () => {
     { value: 'mechanic', label: 'Механик' },
     { value: 'accountant', label: 'Бухгалтер' },
     { value: 'governance', label: 'Управление' },
+    { value: 'testDriver', label: 'Тест-Драйвер' },
     { value: 'systemAdministrator', label: 'Системный Администратор' },
   ];
 
@@ -24,7 +26,6 @@ const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
   const [position, setPosition] = useState(options[0]);
   const [emptyFields, setEmptyFields] = useState(false);
-  const [isShowTost, setShowTost] = useState(false);
 
   const errors = {
     emptyFieldError: 'Заполните все необходимые поля',
@@ -44,8 +45,8 @@ const Auth: React.FC = () => {
   };
 
   const changePosition = (value: any) => {
-    console.log(value);
     setPosition(value);
+    console.log(value);
   };
 
   const authenticationСonfirmation: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -55,7 +56,17 @@ const Auth: React.FC = () => {
       setEmptyFields(true);
       toastik();
     } else {
-      setEmptyFields(false);
+      const userData = {
+        login,
+        password,
+        position: position.label,
+      };
+      const userFromDB = EmployeesStore.getEmployeeByAuth(userData);
+      if (userFromDB) {
+        AuthStore.addCurrentUser(userFromDB);
+        navigate('/');
+      }
+      console.log(userFromDB);
     }
   };
 
