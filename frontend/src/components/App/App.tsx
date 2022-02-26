@@ -38,6 +38,7 @@ const App: React.FC = () => (
       <Route path='test-drive' element={<TestDrive />} />
       <Route path='test-drive/:id' element={<TestDriveEditForm />} />
       <Route path='test-drive/add' element={<TestDriveAddForm />} />
+      <Route path='*' element={<Auth />} />
     </Route>
   </Routes>
 );
