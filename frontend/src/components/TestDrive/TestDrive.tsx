@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import TestDriveEntryesStore from '../../stores/TestDriveEntryesStore';
 import Warning from '../Warning';
 import Table from '../Table';
+import FiltersPanel from '../FiltersPanel';
 import classes from './TestDrive.module.scss';
 
 const TestDrive: React.FC = () => {
@@ -53,15 +54,18 @@ const TestDrive: React.FC = () => {
 
   return (
     <div className={classes.component}>
-      <Table
-        tableHeaders={headers}
-        tableBody={body}
-        edit={true}
-        handleOfEdit={editClientBoughtCar}
-        remove={true}
-        handleOfRemove={removeHandle}
-        conditionForDelete={() => true}
-      />
+      <div className={classes.content}>
+        <FiltersPanel />
+        <Table
+          tableHeaders={headers}
+          tableBody={body}
+          edit={true}
+          handleOfEdit={editClientBoughtCar}
+          remove={true}
+          handleOfRemove={removeHandle}
+          conditionForDelete={() => true}
+        />
+      </div>
       { showWarning && (
         <Warning
           warningMessage='Удалить запись'

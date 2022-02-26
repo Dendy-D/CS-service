@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Table from '../Table';
 import PotentialClientsStore from '../../stores/PotentialClientsStore';
 import Warning from '../Warning';
+import FiltersPanel from '../FiltersPanel';
 import classes from './PotentialClients.module.scss';
 
 const PotentialClients: React.FC = () => {
@@ -51,19 +52,20 @@ const PotentialClients: React.FC = () => {
 
   const body = PotentialClientsStore.potentialClients;
 
-  console.log(body);
-
   return (
     <div className={classes.component}>
-      <Table
-        tableHeaders={headers}
-        tableBody={body}
-        remove={true}
-        handleOfRemove={removeHandle}
-        conditionForDelete={() => true}
-        edit={true}
-        handleOfEdit={editPotentialClient}
-      />
+      <div className={classes.content}>
+        <FiltersPanel />
+        <Table
+          tableHeaders={headers}
+          tableBody={body}
+          remove={true}
+          handleOfRemove={removeHandle}
+          conditionForDelete={() => true}
+          edit={true}
+          handleOfEdit={editPotentialClient}
+        />
+      </div>
       { showWarning && (
         <Warning
           warningMessage='Вы уверены, что хотите удалить клиента:'

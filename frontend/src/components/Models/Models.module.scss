@@ -1,13 +1,23 @@
 .component {
-  padding: 60px;
   width: 100%;
-  min-width: 300px;
   height: calc(100vh - 80px);
   overflow-y: auto;
   overflow-x: hidden;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 100px;
-  grid-auto-flow: dense;
-  justify-content: center;
+
+  .filterPanel {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .cards {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 90%;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 100px;
+    grid-auto-flow: dense;
+    justify-content: center;
+  }
 }

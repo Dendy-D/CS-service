@@ -25,7 +25,7 @@ type TableProps<T> = {
   expressionInsteadOfDelete?: React.ReactNode;
 }
 
-const Table = <T extends object>(props: TableProps<T>): ReactElement | null => {
+const Table = <T extends object>(props: TableProps<T>) => {
 
   const {
     tableHeaders,
@@ -77,12 +77,13 @@ const Table = <T extends object>(props: TableProps<T>): ReactElement | null => {
                   {<EditIcon className={classes.editIcon} onClick={() => handleOfEdit(entity.id)} />}
                 </td>
               ) : null }
-            {
+            { entityKeys ?
               entityKeys.map((key) => (
                 <td key={uniqueId(`entity_${index}`)} className={`classes.${key}`}>
                   {entity[key]}
                 </td>
-              ))
+              )) :
+              <td>Полей нет сорян</td>
             }
             {
               remove && handleOfRemove ?

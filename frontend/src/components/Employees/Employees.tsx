@@ -6,6 +6,7 @@ import { Employee } from '../../types/Employee';
 import EmployeeStore from '../../stores/EmployeeStore';
 import Warning from '../Warning';
 import Table from '../Table';
+import FiltersPanel from '../FiltersPanel';
 
 import classes from './Employees.module.scss';
 
@@ -65,16 +66,19 @@ const Employees: React.FC = observer(() => {
 
   return (
     <div className={classes.component}>
-      <Table
-        tableHeaders={headers}
-        edit={true}
-        tableBody={body}
-        handleOfEdit={editEmployee}
-        remove={true}
-        handleOfRemove={dismissalHandle}
-        conditionForDelete={conditionForDelete}
-        expressionInsteadOfDelete={span}
-      />
+      <div className={classes.content}>
+        <FiltersPanel />
+        <Table
+          tableHeaders={headers}
+          edit={true}
+          tableBody={body}
+          handleOfEdit={editEmployee}
+          remove={true}
+          handleOfRemove={dismissalHandle}
+          conditionForDelete={conditionForDelete}
+          expressionInsteadOfDelete={span}
+        />
+      </div>
       { showWarning && (
         <Warning
           warningMessage='Вы уверены что хотите уволить сотрудника:'
