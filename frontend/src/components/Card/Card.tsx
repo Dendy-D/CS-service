@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 
 import { priceUnifier } from '../../utils/priceUnifier';
-import { Car } from '../../types/Car';
+import { CarForForm } from '../../types/Car';
 import classes from './Card.module.scss';
 import Modal from '../Modal';
 
-const Card: React.FC<Car> = (props: Car) => {
+const Card: React.FC<CarForForm> = (props: CarForForm) => {
 
   const [showModal, setShowModal] = useState(false);
 
