@@ -10,4 +10,4 @@ export type TestDriveEntryUpdated = TestDriveEntry & {
   [key: string]: string;
 }
 
-export type TestDriveEntryForEdit = Omit<TestDriveEntry, 'id'>;
+export type TestDriveEntryForForm = Omit<TestDriveEntry, 'id'>;
