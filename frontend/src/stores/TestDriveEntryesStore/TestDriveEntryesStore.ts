@@ -1,7 +1,8 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import testDriveEntryesDataBase from '../../models/testDriveEntryes';
-import { TestDriveEntry, TestDriveEntryUpdated, TestDriveEntryForEdit } from '../../types/TestDriveEntry';
+import testDriveEntryesDataBase from '../../models/testDriveEntryesDB';
+import { TestDriveEntry, TestDriveEntryUpdated, TestDriveEntryForForm } from '../../types/TestDriveEntry';
+import { uniqueId } from '../../utils/generatorId';
 
 class TestDriveEntryesStore {
 
@@ -15,8 +16,16 @@ class TestDriveEntryesStore {
     this.testDriveEntryes = this.testDriveEntryes.filter((entry: TestDriveEntry) => entry.id !== id);
   }
 
-  addTestDriveEntry(entry: TestDriveEntry) {
-    this.testDriveEntryes.push(entry);
+  addTestDriveEntry(entry: TestDriveEntryForForm) {
+    const newTestDriveEntry: TestDriveEntry = {
+      fullNameClient: entry.fullNameClient,
+      fullNameEmployee: entry.fullNameEmployee,
+      carId: entry.carId,
+      date: entry.date,
+      id: uniqueId(),
+    };
+
+    this.testDriveEntryes.push(newTestDriveEntry);
   }
 
   getTestDriveEntryById(id: string) {
@@ -31,7 +40,7 @@ class TestDriveEntryesStore {
     return toJS(result);
   }
 
-  editTestDriveEntry(testDriveEntryEdited: TestDriveEntryForEdit, id: string) {
+  editTestDriveEntry(testDriveEntryEdited: TestDriveEntryForForm, id: string) {
     const editableTestDriveEntry: TestDriveEntryUpdated = this.getTestDriveEntryById(id);
 
     const indexInitialTestDriveEntry: Array<number> = [];
