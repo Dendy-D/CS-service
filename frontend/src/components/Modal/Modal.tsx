@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { ReactComponent as CrossIcon } from './assets/cross.svg';
-import { Car } from '../../types/Car';
+import { CarForForm } from '../../types/Car';
 import { priceUnifier } from '../../utils/priceUnifier';
 import classes from './Modal.module.scss';
 
@@ -11,7 +11,7 @@ type CardProps<T> = T & {
   handlerClose: () => void,
 };
 
-const Modal: React.FC<CardProps<Car>> = (props: CardProps<Car>) => {
+const Modal: React.FC<CardProps<CarForForm>> = (props: CardProps<CarForForm>) => {
   const {
     brand,
     model,

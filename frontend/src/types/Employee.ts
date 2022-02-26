@@ -13,4 +13,4 @@ export type EmployeeUpdated = Employee & {
   [key: string]: string | number;
 };
 
-export type EmployeeForEdit = Omit<Employee, 'id' | 'login' | 'password' | 'status'>;
+export type EmployeeForForm = Omit<Employee, 'id' | 'login' | 'password' | 'status'>;

@@ -2,9 +2,11 @@ import { makeAutoObservable, toJS } from 'mobx';
 
 import employeesDataBase from '../../models/employeesDB';
 import { getDataFromFakeDB } from '../../utils/parserFakeDB';
-import { Employee, EmployeeForEdit, EmployeeUpdated } from '../../types/Employee';
+import { generatorLogin } from '../../utils/generatorLogin';
+import { uniqueId } from '../../utils/generatorId';
+import { Employee, EmployeeForForm, EmployeeUpdated } from '../../types/Employee';
 
-class EmployeeStore {
+class EmployeesStore {
   employees: Array<Employee> = getDataFromFakeDB(employeesDataBase);
 
   constructor() {
@@ -19,8 +21,18 @@ class EmployeeStore {
     });
   }
 
-  addEmployee(employee: Employee) {
-    this.employees.push(employee);
+  addEmployee(employee: EmployeeForForm) {
+    const newEmployee: Employee = {
+      fullName: employee.fullName,
+      email: employee.email,
+      phoneNumber: employee.phoneNumber,
+      position: employee.position,
+      login: generatorLogin(employee.fullName),
+      password: 123321,
+      status: 'working',
+      id: uniqueId(),
+    };
+    this.employees.push(newEmployee);
   }
 
   getEmployeeById(id: string) {
@@ -35,7 +47,7 @@ class EmployeeStore {
     return toJS(result);
   }
 
-  editEmployee(employeeEdited: EmployeeForEdit, id: string) {
+  editEmployee(employeeEdited: EmployeeForForm, id: string) {
     const editableEmployee: EmployeeUpdated = this.getEmployeeById(id);
 
     const indexInitialEmployee: Array<number> = [];
@@ -56,4 +68,4 @@ class EmployeeStore {
 
 }
 
-export default new EmployeeStore();
+export default new EmployeesStore();

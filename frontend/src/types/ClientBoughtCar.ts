@@ -14,4 +14,4 @@ export type ClientBoughtCarUpdated = ClientBoughtCar & {
   [key: string]: string;
 }
 
-export type ClientBoughtCarForEdit = Omit<ClientBoughtCar, 'id'>
+export type ClientBoughtCarForForm = Omit<ClientBoughtCar, 'id'>

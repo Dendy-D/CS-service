@@ -10,4 +10,4 @@ export type PotentialClientUpdated = PotentialClient & {
   [key: string]: string;
 }
 
-export type PotentialClientForEdit = Omit<PotentialClient, 'id'>;
+export type PotentialClientForForm = Omit<PotentialClient, 'id'>;

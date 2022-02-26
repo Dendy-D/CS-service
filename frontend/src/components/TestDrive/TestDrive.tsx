@@ -9,12 +9,10 @@ import classes from './TestDrive.module.scss';
 
 const TestDrive: React.FC = () => {
   const [showWarning, setShowWarning] = useState(false);
-  const [testDriveNameForWarning, setTestDriveNameForWarning] = useState('');
-  const [testDriveIdForWarning, setTestDriveIdForWarning] = useState('');
+  const [testDriveEntryIdForWarning, setTestDriveEntryIdForWarning] = useState('');
 
-  const removeHandle = (id: string, name: string) => {
-    setTestDriveNameForWarning(name);
-    setTestDriveIdForWarning(id);
+  const removeHandle = (id: string) => {
+    setTestDriveEntryIdForWarning(id);
     setShowWarning(true);
   };
 
@@ -22,6 +20,10 @@ const TestDrive: React.FC = () => {
 
   const editClientBoughtCar = (id: string) => {
     navigate(id);
+  };
+
+  const addNewTestDriveEntry = () => {
+    navigate('add');
   };
 
   const closeWarning = () => {
@@ -55,7 +57,7 @@ const TestDrive: React.FC = () => {
   return (
     <div className={classes.component}>
       <div className={classes.content}>
-        <FiltersPanel />
+        <FiltersPanel addEntity={addNewTestDriveEntry} />
         <Table
           tableHeaders={headers}
           tableBody={body}
@@ -71,8 +73,7 @@ const TestDrive: React.FC = () => {
           warningMessage='Удалить запись'
           actionMessage='Удалить'
           closeWarning={closeWarning}
-          removeFunction={() => TestDriveEntryesStore.deleteTestDriveEntry(testDriveIdForWarning)}
-          entityName={testDriveNameForWarning}
+          removeFunction={() => TestDriveEntryesStore.deleteTestDriveEntry(testDriveEntryIdForWarning)}
         />
       )}
     </div>

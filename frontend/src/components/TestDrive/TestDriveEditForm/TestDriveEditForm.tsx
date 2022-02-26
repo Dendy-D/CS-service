@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { TestDriveEntry } from '../../../types/TestDriveEntry';
 import TestDriveEntryesStore from '../../../stores/TestDriveEntryesStore';
-import classes from './TestDriveForm.module.scss';
+import classes from './TestDriveEditForm.module.scss';
 
 type Form = {
   fullNameClient: string;
@@ -12,7 +12,7 @@ type Form = {
   date: string;
 };
 
-const TestDriveForm: React.FC = () => {
+const TestDriveEditForm: React.FC = () => {
   const { id = '' } = useParams();
 
   const navigate = useNavigate();
@@ -85,4 +85,4 @@ const TestDriveForm: React.FC = () => {
   );
 };
 
-export default TestDriveForm;
+export default TestDriveEditForm;

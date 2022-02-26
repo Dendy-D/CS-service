@@ -1,0 +1,21 @@
+.component {
+  .button {
+    border: none;
+    cursor: pointer;
+    background-color: #ececec;
+    color: #3D3E41;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    &:hover { 
+      background-color: #e4e3e3;
+    }
+
+    &:active {
+      outline: 1px solid #e6e6e6;
+    }
+
+  }
+}

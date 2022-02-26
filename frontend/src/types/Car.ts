@@ -1,5 +1,5 @@
 export type Car = {
-  id?: string;
+  id: string;
   brand: string;
   model: string;
   complectation: string;
@@ -10,3 +10,9 @@ export type Car = {
   engineVolume: number;
   preview: string;
 }
+
+export type CarUpdated = Car & {
+  [key: string]: string | number;
+}
+
+export type CarForForm = Omit<Car, 'id'>;

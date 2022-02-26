@@ -1,7 +1,8 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
 import clientBoughtCarDataBase from '../../models/clientsBoughtCarDB';
-import { ClientBoughtCar, ClientBoughtCarUpdated, ClientBoughtCarForEdit } from '../../types/ClientBoughtCar';
+import { uniqueId } from '../../utils/generatorId';
+import { ClientBoughtCar, ClientBoughtCarUpdated, ClientBoughtCarForForm } from '../../types/ClientBoughtCar';
 
 class ClientsBoughtCarStore {
 
@@ -15,8 +16,19 @@ class ClientsBoughtCarStore {
     this.clientsBoughtCar = this.clientsBoughtCar.filter((client: ClientBoughtCar) => client.id !== id);
   }
 
-  addClientBoughtCar(client: ClientBoughtCar) {
-    this.clientsBoughtCar.push(client);
+  addClientBoughtCar(client: ClientBoughtCarForForm) {
+    const newClientBoughtCar: ClientBoughtCar = {
+      fullName: client.fullName,
+      phoneNumber: client.phoneNumber,
+      carId: client.carId,
+      contractOfSaleId: client.contractOfSaleId,
+      dateOfBirst: client.dateOfBirst,
+      sex: client.sex,
+      placeOfBirth: client.placeOfBirth,
+      seriesAndNumbers: client.seriesAndNumbers,
+      id: uniqueId(),
+    };
+    this.clientsBoughtCar.push(newClientBoughtCar);
   }
 
   getClientBoughtCarById(id: string) {
@@ -31,7 +43,7 @@ class ClientsBoughtCarStore {
     return toJS(result);
   }
 
-  editClientBoughtCar(clientBoughtCarEdited: ClientBoughtCarForEdit, id: string) {
+  editClientBoughtCar(clientBoughtCarEdited: ClientBoughtCarForForm, id: string) {
     const editableClientBoughtCar: ClientBoughtCarUpdated = this.getClientBoughtCarById(id);
 
     const indexInitialPotentialClient: Array<number> = [];

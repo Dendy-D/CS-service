@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { PotentialClient } from '../../../types/PotentialClient';
 import PotentialClientsStore from '../../../stores/PotentialClientsStore';
-import classes from './PotentialClientForm.module.scss';
+import classes from './PotentialClientAddForm.module.scss';
 
 type Form = {
   fullName: string;
@@ -12,33 +11,29 @@ type Form = {
   leasing: 'Нужен' | 'Не нужен';
 };
 
-const PotentialClientForm: React.FC = () => {
-  const { id = '' } = useParams();
-
+const PotentialClientAddForm: React.FC = () => {
   const navigate = useNavigate();
 
-  const potentialClient: PotentialClient = PotentialClientsStore.getPotentialClientById(id);
-
   const [form, setForm] = useState<Form>({
-    fullName: potentialClient.fullName,
-    phoneNumber: potentialClient.phoneNumber,
-    potencialCarId: potentialClient.potencialCarId,
-    leasing: potentialClient.leasing,
+    fullName: '',
+    phoneNumber: '',
+    potencialCarId: '',
+    leasing: 'Не нужен',
   });
 
   const formChangeHandler = (key: keyof Form, value: string) => {
     setForm({ ...form, [key]: value });
   };
 
-  const changeEditHandle = () => {
-    PotentialClientsStore.editPotentialClient(form, id);
+  const addPotentialClient = () => {
+    PotentialClientsStore.addPotentialClient(form);
     navigate('/potential-clients');
   };
 
   return (
     <div className={classes.component}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>Редактирование данных потенциального клиента</h1>
+        <h1 className={classes.title}>Добавление потенциального клиента</h1>
         <div>
           <label htmlFor="fullName">ФИО</label>
           <input
@@ -46,15 +41,6 @@ const PotentialClientForm: React.FC = () => {
             type="text"
             value={form.fullName}
             onChange={(e) => formChangeHandler('fullName', e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="potencialCarId">Номер</label>
-          <input
-            name="potencialCarId"
-            type="text"
-            value={form.potencialCarId}
-            onChange={(e) => formChangeHandler('potencialCarId', e.target.value)}
           />
         </div>
         <div>
@@ -67,6 +53,15 @@ const PotentialClientForm: React.FC = () => {
           />
         </div>
         <div>
+          <label htmlFor="potencialCarId">Потенциальный автомобиль</label>
+          <input
+            name="potencialCarId"
+            type="text"
+            value={form.potencialCarId}
+            onChange={(e) => formChangeHandler('potencialCarId', e.target.value)}
+          />
+        </div>
+        <div>
           <label htmlFor="leasing">Лизинг</label>
           <input
             name="leasing"
@@ -76,8 +71,8 @@ const PotentialClientForm: React.FC = () => {
           />
         </div>
         <div>
-          <button className={classes.editButton} onClick={changeEditHandle}>
-            Редактировать
+          <button className={classes.editButton} onClick={addPotentialClient}>
+            Добавить
           </button>
         </div>
       </div>
@@ -85,4 +80,4 @@ const PotentialClientForm: React.FC = () => {
   );
 };
 
-export default PotentialClientForm;
+export default PotentialClientAddForm;

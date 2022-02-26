@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Employee } from '../../../types/Employee';
-import EmployeeStore from '../../../stores/EmployeeStore';
-import classes from './EmployeeForm.module.scss';
+import EmployeesStore from '../../../stores/EmployeesStore';
+import classes from './EmployeeAddForm.module.scss';
 
 type Form = {
   fullName: string;
@@ -12,33 +11,29 @@ type Form = {
   position: string;
 };
 
-const EmployeeForm: React.FC = () => {
-  const { id = '' } = useParams();
-
+const EmployeeAddForm: React.FC = () => {
   const navigate = useNavigate();
 
-  const employee: Employee = EmployeeStore.getEmployeeById(id);
-
   const [form, setForm] = useState<Form>({
-    fullName: employee.fullName,
-    email: employee.email,
-    phoneNumber: employee.phoneNumber,
-    position: employee.position,
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    position: '',
   });
 
   const formChangeHandler = (key: keyof Form, value: string) => {
     setForm({ ...form, [key]: value });
   };
 
-  const changeEditHandle = () => {
-    EmployeeStore.editEmployee(form, id);
+  const addEmployee = () => {
+    EmployeesStore.addEmployee(form);
     navigate('/employees');
   };
 
   return (
     <div className={classes.component}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>Редактирование данных сотрудника</h1>
+        <h1 className={classes.title}>Добавление сотрудника</h1>
         <div>
           <label htmlFor="fullName">ФИО</label>
           <input
@@ -76,8 +71,8 @@ const EmployeeForm: React.FC = () => {
           />
         </div>
         <div>
-          <button className={classes.editButton} onClick={changeEditHandle}>
-            Редактировать
+          <button className={classes.editButton} onClick={addEmployee}>
+            Добавить
           </button>
         </div>
       </div>
@@ -85,4 +80,4 @@ const EmployeeForm: React.FC = () => {
   );
 };
 
-export default EmployeeForm;
+export default EmployeeAddForm;
