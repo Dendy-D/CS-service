@@ -4,4 +4,8 @@
   overflow-y: scroll;
   display: flex;
   justify-content: center;
+
+  .content {
+    width: 90%;
+  }
 }
