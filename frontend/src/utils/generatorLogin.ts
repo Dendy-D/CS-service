@@ -11,6 +11,3 @@ export const generatorLogin = (fullName: string) => {
 
   return cyrillicToTranslit.transform(fullName);
 };
-
-console.log(generatorLogin('Василенко Даниил Павлович'));
-

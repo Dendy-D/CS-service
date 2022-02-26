@@ -38,7 +38,7 @@ const TestDriveEditForm: React.FC = () => {
   return (
     <div className={classes.component}>
       <div className={classes.wrapper}>
-        <h1 className={classes.title}>Редактирование данных потенциального клиента</h1>
+        <h1 className={classes.title}>Редактирование записи на тест-драйв</h1>
         <div>
           <label htmlFor="fullNameClient">ФИО клиента</label>
           <input
