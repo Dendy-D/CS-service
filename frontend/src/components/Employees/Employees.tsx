@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 
 import { Employee } from '../../types/Employee';
-import EmployeeStore from '../../stores/EmployeeStore';
+import EmployeeStore from '../../stores/EmployeesStore';
 import Warning from '../Warning';
 import Table from '../Table';
 import FiltersPanel from '../FiltersPanel';
@@ -28,7 +28,7 @@ const Employees: React.FC = observer(() => {
   };
 
   const addNewEmployee = () => {
-    console.log(1);
+    navigate('add');
   };
 
   const editEmployee = (id: string) => {
@@ -67,7 +67,7 @@ const Employees: React.FC = observer(() => {
   return (
     <div className={classes.component}>
       <div className={classes.content}>
-        <FiltersPanel />
+        <FiltersPanel addEntity={addNewEmployee} />
         <Table
           tableHeaders={headers}
           edit={true}
