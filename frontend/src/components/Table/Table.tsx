@@ -26,7 +26,7 @@ type TableProps<T> = {
 }
 
 const Table = <T extends object>(props: TableProps<T>) => {
-
+  console.log(1);
   const {
     tableHeaders,
     tableBody,
@@ -50,9 +50,13 @@ const Table = <T extends object>(props: TableProps<T>) => {
 
   type PrivateData = (typeof privateData)[number];
 
+  console.log(tableBody);
+
   const isPrivateData = (value: any): value is PrivateData => privateData.includes(value);
 
-  const entityKeys = Object.keys(toJS(tableBody)[0]).filter((key: string) => !isPrivateData(key));
+  const entityKeys = Object.keys(toJS(tableBody)[0]).filter((key) => !isPrivateData(key));
+
+  console.log(entityKeys);
 
   return (
     <table className={classes.table}>

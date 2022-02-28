@@ -1,8 +1,8 @@
 const employeesDataBase = {
   admin: {
     id: '46g7dvbdndn',
-    login: 'a',
-    password: '1',
+    login: 'toni-stark',
+    password: '89143978701',
     fullName: 'Амельченко Антон Олегович',
     email: 'anton-amelchenko@mail.ru',
     phoneNumber: '8-914-777-22-03',

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import ContractsOfSale from '../../stores/ContractsOfSale/ContractsOfSale';
+import ContractsOfSaleStore from '../../stores/ContractsOfSaleStore';
 import { ContractOfSaleT } from '../../types/ContractOfSale';
 import { uniqueId } from '../../utils/generatorId';
 import classes from './ContractOfSale.module.scss';
@@ -38,8 +38,8 @@ const ContractOfSale: React.FC = () => {
   });
 
   const addPotentialClient = () => {
-    ContractsOfSale.addContractOfSale(form);
-    navigate('/potential-clients');
+    ContractsOfSaleStore.addContractOfSale(form);
+    navigate('/deals-made');
   };
 
   const formChangeHandler = (key: keyof ContractOfSaleT, value: string) => {

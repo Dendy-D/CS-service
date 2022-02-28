@@ -16,13 +16,13 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 
   let currentUser: any;
 
-  // useEffect(() => {
-  //   currentUser = toJS(AuthStore.currentUser);
-  //   if (currentUser === undefined) {
-  //     navigate('/auth');
-  //   }
-  //   // console.log(currentUser);
-  // });
+  useEffect(() => {
+    currentUser = toJS(AuthStore.currentUser);
+    if (currentUser === undefined) {
+      navigate('/auth');
+    }
+    // console.log(currentUser);
+  });
 
   const logOut = () => {
     navigate('/auth');
