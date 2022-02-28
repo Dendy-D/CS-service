@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import testDriveEntryesDataBase from '../../models/testDriveEntryesDB';
+import testDriveEntryesDataBase from '../../fakeDatabases/testDriveEntryesDB';
 import { TestDriveEntry, TestDriveEntryUpdated, TestDriveEntryForForm } from '../../types/TestDriveEntry';
 import { uniqueId } from '../../utils/generatorId';
 

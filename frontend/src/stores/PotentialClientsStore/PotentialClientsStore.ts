@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import potentialClientsDataBase from '../../models/potentialClientsDB';
+import potentialClientsDataBase from '../../fakeDatabases/potentialClientsDB';
 import { PotentialClient, PotentialClientForForm, PotentialClientUpdated } from '../../types/PotentialClient';
 import { uniqueId } from '../../utils/generatorId';
 
@@ -20,7 +20,7 @@ class PotentialClientsStore {
     const newPotentialClient: PotentialClient = {
       fullName: client.fullName,
       phoneNumber: client.phoneNumber,
-      potencialCarId: client.potencialCarId,
+      carId: client.carId,
       leasing: client.leasing,
       id: uniqueId(),
     };
