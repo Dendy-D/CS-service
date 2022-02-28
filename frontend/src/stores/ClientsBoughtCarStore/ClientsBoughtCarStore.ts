@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import clientBoughtCarDataBase from '../../models/clientsBoughtCarDB';
+import clientBoughtCarDataBase from '../../fakeDatabases/clientsBoughtCarDB';
 import { uniqueId } from '../../utils/generatorId';
 import { ClientBoughtCar, ClientBoughtCarUpdated, ClientBoughtCarForForm } from '../../types/ClientBoughtCar';
 

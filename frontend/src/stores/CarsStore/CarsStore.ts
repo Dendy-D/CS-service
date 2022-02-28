@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import carsDataBase from '../../models/carsDB';
+import carsDataBase from '../../fakeDatabases/carsDB';
 import { Car, CarForForm, CarUpdated } from '../../types/Car';
 import { uniqueId } from '../../utils/generatorId';
 
@@ -28,6 +28,7 @@ class CarsStore {
       engineVolume: car.engineVolume,
       preview: car.preview,
       id: uniqueId(),
+      booked: false,
     };
 
     this.cars.push(newCar);
@@ -57,7 +58,7 @@ class CarsStore {
       }
     });
 
-    Object.entries(carEdited).forEach(([key, value]: Array<string | number>) => {
+    Object.entries(carEdited).forEach(([key, value]) => {
       editableCar[key] = value;
     });
 

@@ -24,6 +24,7 @@ const Card: React.FC<CarForForm> = (props: CarForForm) => {
     enginePower,
     engineVolume,
     preview,
+    booked
   } = props;
 
   const colorClasses = clsx({
@@ -59,6 +60,7 @@ const Card: React.FC<CarForForm> = (props: CarForForm) => {
         preview={preview}
         handlerClose={onModal}
         showModal={showModal}
+        booked={booked}
       />}
     </>
   );

@@ -32,6 +32,7 @@ const Cars: React.FC = observer(() => {
             enginePower={car.enginePower}
             engineVolume={car.engineVolume}
             preview={car.preview}
+            booked={car.booked}
             key={uniqueId(`car_${index}`)}
           />
         ))}

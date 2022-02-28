@@ -2,7 +2,7 @@ import { ClientBoughtCar } from '../types/ClientBoughtCar';
 
 const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
   {
-    id: 'skj6f3bas83',
+    id: 'as3g49df5hs',
     fullName: 'Затыкина Татьяна Ивановна',
     phoneNumber: '8-956-345-20-98',
     carId: '12fd850svg6',
@@ -13,7 +13,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '1452 123541',
   },
   {
-    id: '9hj6f3vs583',
+    id: '34fs05gsb43',
     fullName: 'Интересов Виктор Викторович',
     phoneNumber: '8-955-389-10-10',
     carId: '30f7s648f6g',
@@ -24,7 +24,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '5324 324365',
   },
   {
-    id: '0ijvsdb3483',
+    id: 'sf3b4favsf3',
     fullName: 'Колосов Владислав Ярославович',
     phoneNumber: '8-956-435-10-98',
     carId: '345dfc2bsr4',
@@ -35,7 +35,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '1293 253894',
   },
   {
-    id: '1ds6f35bc87',
+    id: '3gdb5hdi5tsn',
     fullName: 'Шептунова Людмила Николаевна',
     phoneNumber: '8-959-345-00-87',
     carId: '35dlthjvb4n',
@@ -46,7 +46,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '1274 253946',
   },
   {
-    id: '2fdv740gns6',
+    id: '4tdgb39gshe',
     fullName: 'Котов Артем Денисович',
     phoneNumber: '8-959-777-07-98',
     carId: '354gsv9g5hs',
@@ -57,7 +57,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '2341 243612',
   },
   {
-    id: 's54gfcx20j6',
+    id: '3gdty5nhu6yh',
     fullName: 'Василева Светлана Захаровна',
     phoneNumber: '8-999-345-99-99',
     carId: '36dfv96hsnx',
@@ -68,7 +68,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '2142 125374',
   },
   {
-    id: 'dfb5j4s96ng',
+    id: '3tgdbn5j6ud',
     fullName: 'Мальцева Василиса Нарековна',
     phoneNumber: '8-976-223-28-06',
     carId: '7568hdxbs43',
@@ -79,7 +79,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '6241 235142',
   },
   {
-    id: '5gdn04na6sg',
+    id: '3gdty5nsgvd',
     fullName: 'Левак Богдан Богданович',
     phoneNumber: '8-955-777-90-08',
     carId: '69ghns54vs2',
@@ -90,7 +90,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '2634 614234',
   },
   {
-    id: '3fsnxb5lgyn',
+    id: '3tdg5nh6jsa',
     fullName: 'Прокопенко Даниил Петрович',
     phoneNumber: '8-956-212-25-78',
     carId: '30f7s648f6g',
@@ -101,7 +101,7 @@ const clientBoughtCarDataBase: Array<ClientBoughtCar> = [
     seriesAndNumbers: '2534 254715',
   },
   {
-    id: '5gsnxf30jtn',
+    id: '7l94h3gb4t1',
     fullName: 'Королев Захар Борисович',
     phoneNumber: '8-956-895-25-35',
     carId: '12fd850svg6',

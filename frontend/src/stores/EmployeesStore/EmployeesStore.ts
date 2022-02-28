@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from 'mobx';
 
-import employeesDataBase from '../../models/employeesDB';
+import employeesDataBase from '../../fakeDatabases/employeesDB';
 import { getDataFromFakeDB } from '../../utils/parserFakeDB';
 import { generatorLogin } from '../../utils/generatorLogin';
 import { uniqueId } from '../../utils/generatorId';
