@@ -21,7 +21,7 @@ import TestDriveAddForm from '../TestDrive/TestDriveAddForm';
 
 const App: React.FC = () => (
   <Routes>
-    <Route path='/auth' element={<Auth />} />
+    {/* <Route path='/auth' element={<Auth />} /> */}
     <Route path='/' element={<Layout />}>
       <Route path='models' element={<Cars />} />
       <Route path='models/add' element={<CarAddForm />} />
@@ -38,7 +38,7 @@ const App: React.FC = () => (
       <Route path='test-drive' element={<TestDrive />} />
       <Route path='test-drive/:id' element={<TestDriveEditForm />} />
       <Route path='test-drive/add' element={<TestDriveAddForm />} />
-      <Route path='*' element={<Auth />} />
+      {/* <Route path='*' element={<Auth />} /> */}
     </Route>
   </Routes>
 );
