@@ -5,10 +5,12 @@ export type ClientBoughtCar = {
   carId: string;
   contractOfSaleId: string;
   dateOfBirst: string;
-  sex: 'Мужской' | 'Женский';
+  sex: Sex;
   placeOfBirth: string;
   seriesAndNumbers: string;
 };
+
+export type Sex = 'Мужской' | 'Женский';
 
 export type ClientBoughtCarUpdated = ClientBoughtCar & {
   [key: string]: string;
