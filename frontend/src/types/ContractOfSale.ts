@@ -9,4 +9,12 @@ export type ContractOfSaleT = {
   date: string;
 };
 
+export type ContractOfSaleForTable = {
+  contractId: string;
+  fullNameEmployee: string;
+  potentialClient: string;
+  car: string;
+  date: string;
+}
+
 export type ContractOfSaleForForm = Omit<ContractOfSaleT, 'id'>
