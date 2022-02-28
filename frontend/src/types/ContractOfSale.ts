@@ -1,12 +1,12 @@
 import { Car } from './Car';
-import { PotentialClient } from './PotentialClient';
+import { PotentialClient, PotentialClientForForm } from './PotentialClient';
 
-export type ContractOfSale = {
+export type ContractOfSaleT = {
   id: string;
   fullNameEmployee: string;
-  potentialClient: PotentialClient;
+  potentialClient: PotentialClientForForm;
   car: Car;
   date: string;
 };
 
-export type ContractOfSaleForForm = Omit<ContractOfSale, 'id'>
+export type ContractOfSaleForForm = Omit<ContractOfSaleT, 'id'>

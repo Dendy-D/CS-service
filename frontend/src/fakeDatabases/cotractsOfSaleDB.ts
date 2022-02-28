@@ -1,11 +1,10 @@
-import { ContractOfSale } from '../types/ContractOfSale';
+import { ContractOfSaleT } from '../types/ContractOfSale';
 
-const contractsOfSale: Array<ContractOfSale> = [
+const contractsOfSale: Array<ContractOfSaleT> = [
   {
     id: 'fs54hndv3s9',
     fullNameEmployee: 'Иванов Николай Константинович',
     potentialClient: {
-      id: 'skj6f3bas83',
       fullName: 'Васнецов Николай Иванович',
       phoneNumber: '8-956-345-20-98',
       carId: '12fd850svg6',
@@ -30,7 +29,6 @@ const contractsOfSale: Array<ContractOfSale> = [
     id: 'sd3gb5gdvx',
     fullNameEmployee: 'Егоров Василий Петрович',
     potentialClient: {
-      id: '9hj6f3vs583',
       fullName: 'Калинин Виктор Степанович',
       phoneNumber: '8-955-389-10-10',
       carId: '30f7s648f6g',
@@ -55,7 +53,6 @@ const contractsOfSale: Array<ContractOfSale> = [
     id: 'af4bd85g3sb',
     fullNameEmployee: 'Иванов Николай Константинович',
     potentialClient: {
-      id: '0ijvsdb3483',
       fullName: 'Закидыш Нарек Тимурович',
       phoneNumber: '8-956-435-10-98',
       carId: '345dfc2bsr4',

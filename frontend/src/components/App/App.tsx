@@ -18,6 +18,7 @@ import ClientsBoughtCarAddForm from '../ClientsBoughtCar/ClientsBoughtCarAddForm
 import TestDrive from '../TestDrive';
 import TestDriveEditForm from '../TestDrive/TestDriveEditForm';
 import TestDriveAddForm from '../TestDrive/TestDriveAddForm';
+import ContractOfSale from '../ContractOfSale';
 
 const App: React.FC = () => (
   <Routes>
@@ -38,6 +39,7 @@ const App: React.FC = () => (
       <Route path='test-drive' element={<TestDrive />} />
       <Route path='test-drive/:id' element={<TestDriveEditForm />} />
       <Route path='test-drive/add' element={<TestDriveAddForm />} />
+      <Route path='contract-of-sale' element={<ContractOfSale/>} />
       {/* <Route path='*' element={<Auth />} /> */}
     </Route>
   </Routes>
