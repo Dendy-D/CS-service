@@ -55,7 +55,7 @@ const contractsOfSale: Array<ContractOfSaleT> = [
     potentialClient: {
       fullName: 'Закидыш Нарек Тимурович',
       phoneNumber: '8-956-435-10-98',
-      carId: '345dfc2bsr4',
+      carId: '69ghns54vs2',
       leasing: 'Нужен',
     },
     car: {
