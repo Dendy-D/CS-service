@@ -1,8 +1,6 @@
 # CarsSelling
 visual db for staff
 
-![Схема часть 1](/backend/schema/schema_full.png);
+## Use-case diagram
 
-![Схема часть 2](/backend/schema/schema_part_1.png);
-
-![Схема полная версия](/backend/schema/schema_part_2.png);
+![use-case](/assets/use-case_1.0.png)
