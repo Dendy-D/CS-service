@@ -2,10 +2,13 @@ import express from 'express';
 import config from 'config';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
 import authRoutes from './modules/auth/routes';
-import { sequelize } from './database/db';
+// import { sequelize } from './database/db';
 import Admin from './models/Admin';
+
+dotenv.config();
 
 const start = async () => {
   try {
@@ -16,22 +19,13 @@ const start = async () => {
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-    app.use('/auth', authRoutes());
+    // app.use('/auth', authRoutes());
 
     app.get('/', (req, res) => {
       res.send('<h1>Server is runnig</h1>');
     });
 
-    sequelize.sync();
-
-    try {
-      const admins = await Admin.findAll({ raw: true});
-      admins.forEach((admin: any) => {
-        console.log('project name ', admin.position);
-      });
-    } catch(err) {
-      console.log('Oops! something went wrong: ', err);
-    }
+    // sequelize.sync();
 
     app.listen(PORT, () => {
       console.log(`Server is runnig on: http://localhost:${PORT}`);
