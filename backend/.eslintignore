@@ -1,2 +1,5 @@
-node_modules
-dist
+/src/generated/*
+/build
+/dist
+**/*.min.js
+/node_modules

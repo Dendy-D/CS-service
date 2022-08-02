@@ -7,8 +7,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "default-case": 2,
@@ -18,36 +17,30 @@
     "no-else-return": 2,
     "no-eval": 2,
     "no-param-reassign": 2,
-    "no-return-assign": 2,
-    "no-return-await": 2,
+    "no-return-assign": 1,
+    "no-return-await": 1,
     "no-undef-init": 2,
     "arrow-parens": 2,
     "block-spacing": 2,
     "comma-spacing": 2,
     "eol-last": 2,
-    "indent": ["error", 2],
-    "newline-per-chained-call": 2,
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 4 }],
     "no-extra-parens": 2,
     "no-multi-spaces": 2,
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }],
     "no-trailing-spaces": 2,
     "semi": 2,
     "no-throw-literal": 1,
     "no-global-assign": 1,
-    "camelcase": 1,
+    "camelcase": 0,
     "no-console": 0,
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "export" }
+    ],
 
     "import/no-extraneous-dependencies": "off",
-    // "import/order": [
-    //   "error",
-    //   {
-    //     "newlines-between": "always",
-    //     "groups": [
-    //       ["builtin", "external"],
-    //       ["sibling", "parent", "index", "internal"]
-    //     ]
-    //   }
-    // ],
 
     "arrow-body-style": "warn",
     "max-len": ["error", {
@@ -69,13 +62,13 @@
     "no-unused-vars": "off",
 
     "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/ban-types": "warn",
     "@typescript-eslint/no-use-before-define": "warn",
-    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-useless-constructor": "error",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-unused-expressions": "warn",
-    "@typescript-eslint/type-annotation-spacing": "error"
+    "@typescript-eslint/type-annotation-spacing": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
