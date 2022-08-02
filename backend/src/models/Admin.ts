@@ -1,5 +1,5 @@
 import { DataTypes, Optional, Model } from 'sequelize';
-import { sequelize } from '../database/db';
+// import { sequelize } from '../database/db';
 
 interface AdminAttributes {
   id: string,
@@ -10,11 +10,9 @@ interface AdminAttributes {
   position: string,
 }
 
-interface AdminCreationAttributes
-  extends Optional<AdminAttributes, 'id'> {}
+type AdminCreationAttributes = Optional<AdminAttributes, 'id'>
 
-interface AdminInstance
-  extends Model<AdminAttributes, AdminCreationAttributes>{}
+type AdminInstance = Model<AdminAttributes, AdminCreationAttributes>
 
 const Admin = sequelize.define<AdminInstance>(
   'Admin',

@@ -1,7 +1,7 @@
 import express from 'express';
 import basicAuth from 'basic-auth';
 
-import { sequelize } from '../database/db';
+// import { sequelize } from '../database/db';
 import Admin from '../models/Admin';
 import { UNAUTHORIZED_DATA_ERR } from '../utils/constants';
 
@@ -17,7 +17,7 @@ const adminAuth = async (req: express.Request, res: express.Response, next: expr
     return unauthorized();
   }
 
-  sequelize.sync();
+  // sequelize.sync();
 
   try {
     const admins = await Admin.findAll({ raw: true});
