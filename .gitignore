@@ -45,7 +45,7 @@ jspm_packages/
 typings/
 
 # TypeScript cache
-*.tsbuildinfo
+*.tsbuildinfo./backend/.evn.development
 
 # Optional npm cache directory
 .npm
@@ -71,6 +71,8 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env.sample
+.evn.development
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
