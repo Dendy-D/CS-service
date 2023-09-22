@@ -12,42 +12,42 @@ Visual database for employees on a car sales website
 	GET /employees
 	GET /employees/:id
 	POST /employees
-	PATCH /employees/:id
+	PUT /employees/:id
 	DELETE /employees/:id
 
 /cars
 	GET /cars
 	GET /cars/:id
 	POST /cars
-	PATCH /cars/:id
+	PUT /cars/:id
 	DELETE /cars/:id
 	
 /test-drives
 	GET /test-drives
 	GET /test-drives/:id
 	POST /test-drives
-	PATCH /test-drives/:id
+	PUT /test-drives/:id
 	DELETE /test-drives/:id
 
 /potential-clients
 	GET /potential-clients
 	GET /potential-clients/:id
 	POST /potential-clients
-	PATCH /potential-clients/:id
+	PUT /potential-clients/:id
 	DELETE /potential-clients/:id
 
 /clients
 	GET /clients
 	GET /clients/:id
 	POST /clients
-	PATCH /clients/:id
+	PUT /clients/:id
 	DELETE /clients/:id
 
 /requests
 	GET /requests
 	GET /requests/:id
 	POST /requests
-	PATCH /requests/:id
+	PUT /requests/:id
 	DELETE /requests/:id
 
 /contracts
