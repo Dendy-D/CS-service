@@ -40,7 +40,7 @@ const addCar = (req: Request, res: Response) => {
   pool.query(checkVinExists, [vin], (error, result) => {
     if (error) throw error;
     if (result.rows.length) {
-      res.send(401);
+      res.sendStatus(422);
     }
   });
 
@@ -62,10 +62,9 @@ const addCar = (req: Request, res: Response) => {
       bought,
       presence_of_faults,
     ],
-    (error, result) => {
+    (error) => {
       if (error) throw error;
       res.status(201).send('The car has been successfully created');
-      console.log(result);
     },
   );
 };
@@ -98,7 +97,12 @@ const updateCar = (req: Request, res: Response) => {
 
   const { id: car_uid } = req.params;
 
-  console.log(car_uid);
+  // pool.query(checkVinExists, [vin], (error, result) => {
+  //   if (error) throw error;
+  //   if (result.rows.length) {
+  //     res.sendStatus(422);
+  //   }
+  // });
 
   pool.query(updateCarQuery,
     [
@@ -119,9 +123,6 @@ const updateCar = (req: Request, res: Response) => {
     ],
     (error, result) => {
       if (error) throw error;
-
-      console.log(result);
-
       res.status(200).json(result.rows[0]);
     },
   );
@@ -130,9 +131,9 @@ const updateCar = (req: Request, res: Response) => {
 const deleteCar = (req: Request, res: Response) => {
   const { id } = req.params;
 
-  pool.query(deleteCarQuery, [id], (error, result) => {
+  pool.query(deleteCarQuery, [id], (error) => {
     if (error) throw error;
-    res.status(204).send('');
+    res.sendStatus(204);
   });
 };
 

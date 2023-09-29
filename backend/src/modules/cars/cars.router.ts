@@ -1,6 +1,12 @@
 import { Router } from 'express';
 
-import { getCars, addCar, getCarById, updateCar, deleteCar } from './controller';
+import {
+  getCars,
+  addCar,
+  getCarById,
+  updateCar,
+  deleteCar
+} from './controller';
 
 const router = Router();
 
