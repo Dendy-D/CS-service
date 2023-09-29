@@ -18,19 +18,19 @@ create Table car(
 
 create Table employee(
   employee_uid UUID PRIMARY KEY,
-  password VARCHAR(255) NOT NULL UNIQUE,
-  salt VARCHAR(255) NOT NULL UNIQUE,
+  hashed_password VARCHAR(255) NOT NULL,
+  salt VARCHAR(255) NOT NULL,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   gender VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   phone_number VARCHAR(255) NOT NULL UNIQUE,
   date_of_birth DATE NOT NULL,
-  date_of_employment VARCHAR(255) NOT NULL,
+  date_of_employment DATE NOT NULL,
   city VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
-  salary VARCHAR(255) NOT NULL,
-  role VARCHAR(255) NOT NULL,
+  salary_in_dollars VARCHAR(255) NOT NULL,
+  role VARCHAR(255) NOT NULL
 );
 -- photo 
 -- status Status

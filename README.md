@@ -90,7 +90,7 @@ interface Employee {
   dateOfEmployment: Date,
   city: string,
   country: string,
-  salary: string,
+  salary: number,
   role: Role,
   // status: Status, ??????
   // photo
