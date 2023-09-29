@@ -1,0 +1,16 @@
+[{
+  "carUid": "f05031a2-b9da-4e91-ae11-71582f4a23b8",
+  "brand": "Mercedes Benz",
+  "model": "CLS",
+  "accelerationInSeconds": 6.1,
+  "topSpeedInKmPerHr": 250,
+  "color": "brown",
+  "yearOfManufacture": 2012,
+  "priceInDollars": 23970,
+  "enginePowerInHp": 306,
+  "engineType": "gasoline",
+  "vin": "WDDGF5EB7AR014220",
+  "booked": false,
+  "bought": false,
+  "presenceOfFaults": false
+}]

@@ -1,0 +1,16 @@
+[{
+  "employeeUid": "bdc65a78-06f0-4fcb-a0c2-fa87f141c27e",
+  "hashedPassword": "$2b$10$TqDAHq4NAcLVHtBZhIIEmOurbQlyKHr2nBbeK84PLqKBB4Ea6sV2G",
+  "salt": "$2b$10$b3ryzRglZbpziSBFt7QHJ.",
+  "firstName": "Michael",
+  "lastName": "Davis",
+  "gender": "male",
+  "email": "davis_1978@gmail.com",
+  "phoneNumber": "+16473725419",
+  "dateOfBirth": "1996-03-02",
+  "dateOfEmployment": "2022-05-14",
+  "city": "Vancouver",
+  "country": "Canada",
+  "salaryInDollars": "74000",
+  "role": "seller"
+}]
