@@ -97,13 +97,6 @@ const updateCar = (req: Request, res: Response) => {
 
   const { id: car_uid } = req.params;
 
-  // pool.query(checkVinExists, [vin], (error, result) => {
-  //   if (error) throw error;
-  //   if (result.rows.length) {
-  //     res.sendStatus(422);
-  //   }
-  // });
-
   pool.query(updateCarQuery,
     [
       car_uid,
@@ -142,5 +135,5 @@ export {
   addCar,
   getCarById,
   updateCar,
-  deleteCar
+  deleteCar,
 };
