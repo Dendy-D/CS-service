@@ -5,12 +5,11 @@ import crypto from 'crypto';
 import pool from '../../database/db';
 import {
   getAllEmployees as getAllEmployeesQuery,
-  addNewEmployee as addNewEmployeeQuery,
-  checkEmailExists,
-  checkPhoneNumberExists,
+  addEmployee as addEmployeeQuery,
   getEmployeeById as getEmployeeByIdQuery,
   updateEmployee as updateEmployeeQuery,
   deleteEmployee as deleteEmployeeQuery,
+  checkPhoneNumberOrEmailExists,
 } from './queries';
 
 const getAllEmployees = (req: Request, res: Response) => {
@@ -20,7 +19,7 @@ const getAllEmployees = (req: Request, res: Response) => {
   });
 };
 
-const addNewEmployee = async (req: Request, res: Response) => {
+const addEmployee = async (req: Request, res: Response) => {
   const {
     firstName: first_name,
     lastName: last_name,
@@ -42,14 +41,7 @@ const addNewEmployee = async (req: Request, res: Response) => {
   const salt = await bcrypt.genSalt();
   const hashed_password = await bcrypt.hash(generatedPassword, salt);
 
-  pool.query(checkEmailExists, [email, employee_uid], (error, result) => {
-    if (error) throw error;
-    if (result.rows.length) {
-      res.sendStatus(422);
-    }
-  });
-
-  pool.query(checkPhoneNumberExists, [phone_number, employee_uid], (error, result) => {
+  pool.query(checkPhoneNumberOrEmailExists, [phone_number, email], (error, result) => {
     if (error) throw error;
     if (result.rows.length) {
       res.sendStatus(422);
@@ -57,7 +49,7 @@ const addNewEmployee = async (req: Request, res: Response) => {
   });
 
   pool.query(
-    addNewEmployeeQuery,
+    addEmployeeQuery,
     [
       employee_uid,
       hashed_password,
@@ -89,7 +81,7 @@ const getEmployeeById = (req: Request, res: Response) => {
   });
 };
 
-const updateEmployee = async (req: Request, res: Response) => {
+const updateEmployee = (req: Request, res: Response) => {
   const { id: employee_uid } = req.params;
 
   const {
@@ -123,7 +115,7 @@ const updateEmployee = async (req: Request, res: Response) => {
     ],
     (error, result) => {
       if (error) throw error;
-      res.status(200).send('The employee information has been successfully updated');
+      res.status(200).json(result.rows[0]);
     },
   );
 };
@@ -131,7 +123,7 @@ const updateEmployee = async (req: Request, res: Response) => {
 const deleteEmployee = (req: Request, res: Response) => {
   const { id: employee_uid } = req.params;
 
-  pool.query(deleteEmployeeQuery, [employee_uid], (error, result) => {
+  pool.query(deleteEmployeeQuery, [employee_uid], (error) => {
     if (error) throw error;
     res.sendStatus(204);
   });
@@ -139,7 +131,7 @@ const deleteEmployee = (req: Request, res: Response) => {
 
 export {
   getAllEmployees,
-  addNewEmployee,
+  addEmployee,
   getEmployeeById,
   updateEmployee,
   deleteEmployee,

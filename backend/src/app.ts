@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import carsRouter from './modules/cars';
 import employeesRouter from './modules/employees';
+import potentialClients from './modules/potentialClients';
 
 const app = express();
 
@@ -19,6 +20,7 @@ const start = () => {
 
     app.use('/api/v1/cars', carsRouter);
     app.use('/api/v1/employees', employeesRouter);
+    app.use('/api/v1/potential-clients', potentialClients);
 
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
