@@ -43,7 +43,7 @@ create Table potential_client(
   email VARCHAR(255) NOT NULL UNIQUE,
   gender VARCHAR(255) NOT NULL,
   leasing BOOLEAN NOT NULL,
-  car_uid INTEGER,
+  car_uid UUID,
   FOREIGN KEY(car_uid) REFERENCES car(car_uid)
 );
 
