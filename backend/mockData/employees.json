@@ -11,6 +11,6 @@
   "dateOfEmployment": "2022-05-14",
   "city": "Vancouver",
   "country": "Canada",
-  "salaryInDollars": "74000",
+  "salaryInDollars": 74000,
   "role": "seller"
 }]
