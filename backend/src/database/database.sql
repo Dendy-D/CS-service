@@ -7,7 +7,7 @@ create Table car(
   color VARCHAR(255) NOT NULL,
   year_of_manufacture INTEGER NOT NULL,
   price_in_dollars INTEGER NOT NULL,
-  engine_power_in_kw INTEGER NOT NULL,
+  engine_power_in_hp INTEGER NOT NULL,
   engine_type VARCHAR(255) NOT NULL,
   vin VARCHAR(255) NOT NULL UNIQUE,
   booked BOOLEAN NOT NULL,
@@ -29,11 +29,19 @@ create Table employee(
   date_of_employment DATE NOT NULL,
   city VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
-  salary_in_dollars VARCHAR(255) NOT NULL,
+  salary_in_dollars INTEGER NOT NULL,
   role VARCHAR(255) NOT NULL
 );
 -- photo 
 -- status Status
+
+create Table employee_status(
+  status_value: VARCHAR(255) NOT NULL,
+)
+
+create Table car_status(
+  status_value: VARCHAR(255) NOT NULL,
+)
 
 create Table potential_client(
   potential_client_uid UUID PRIMARY KEY,
@@ -43,7 +51,7 @@ create Table potential_client(
   email VARCHAR(255) NOT NULL UNIQUE,
   gender VARCHAR(255) NOT NULL,
   leasing BOOLEAN NOT NULL,
-  car_uid UUID,
+  car_uid UUID NOT NULL,
   FOREIGN KEY(car_uid) REFERENCES car(car_uid)
 );
 
@@ -52,14 +60,17 @@ create Table contract(
   passport_code VARCHAR(255) NOT NULL UNIQUE,
   date_of_birth DATE NOT NULL,
   city VARCHAR(255) NOT NULL,
+  state VARCHAR(255),
   country VARCHAR(255) NOT NULL,
-  zipCode INTEGER NOT NULL,
-  potential_client_uid INTEGER UNIQUE,
-  car_uid INTEGER NOT NULL UNIQUE,
-  employee_uid INTEGER,
-  FOREIGN KEY(potential_client_uid) REFERENCES potential_client(potential_client_uid)
-  FOREIGN KEY(car_uid) REFERENCES car(car_uid)
-  FOREIGN KEY(employee_uid) REFERENCES employee(employee_uid),
+  zip_code INTEGER NOT NULL,
+  driver_license VARCHAR(255) NOT NULL,
+  archived BOOLEAN DEFAULT false,
+  potential_client_uid UUID NOT NULL UNIQUE,
+  car_uid UUID NOT NULL UNIQUE,
+  employee_uid UUID NOT NULL UNIQUE,
+  FOREIGN KEY(potential_client_uid) REFERENCES potential_client(potential_client_uid),
+  FOREIGN KEY(car_uid) REFERENCES car(car_uid),
+  FOREIGN KEY(employee_uid) REFERENCES employee(employee_uid)
 );
 
 create Table client(

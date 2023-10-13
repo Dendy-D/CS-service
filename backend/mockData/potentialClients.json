@@ -1,10 +1,10 @@
 [{
-  "potentialClientUid": "15fdd921-d099-40ae-9e9f-e9c6b5468744",
+  "potentialClientUid": "48d02148-47ce-4310-af6b-1bc29ac8591a",
   "firstName": "Thomas",
   "lastName": "Harris",
   "phoneNumber": "+16473725321",
   "email": "thomas_is_good@gmail.com",
   "gender": "male",
   "leasing": false,
-  "carUid": ""
+  "carUid": "9101727f-1c60-4ca8-a790-aa6f35f1f469"
 }]
