@@ -1,0 +1,14 @@
+[{
+  "contractUid": "9dbc1fe0-e132-439b-a925-a22ac252b84f",
+  "passportCode": "41375875",
+  "dateOfBirth": "1998-05-14",
+  "city": "Chicago",
+  "state": "Illinois",
+  "country": "United States",
+  "zipCode": 60131,
+  "driverLicense": "C12345D678",
+  "archived": false,
+  "potentialClientUid": "48d02148-47ce-4310-af6b-1bc29ac8591a",
+  "carUid": "9101727f-1c60-4ca8-a790-aa6f35f1f469",
+  "employeeUid": "15fdd921-d099-40ae-9e9f-e9c6b5468744"
+}]
