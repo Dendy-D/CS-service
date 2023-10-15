@@ -7,12 +7,22 @@ import {
   checkVinExists,
   getCarById as getCarByIdQuery,
   addCar as addCarQuery,
-  deleteCar as deleteCarQuery,
   updateCar as updateCarQuery,
+  updateCarStatus as updateCarStatusQuery,
+  deleteCar as deleteCarQuery,
 } from './queries';
 
 const getCars = async (req: Request, res: Response) => {
-  pool.query(getCarsQuery, (error, result) => {
+  const { status } = req.query;
+
+  let carsQuery = getCarsQuery;
+
+  if (typeof status === 'string') {
+    const statuses = status.split(',').map((elem) => `'${elem}'`);
+    carsQuery += ` WHERE status IN (${statuses})`;
+  }
+
+  pool.query(carsQuery, (error, result) => {
     if (error) throw error;
     res.status(200).json(result.rows);
   });
@@ -30,9 +40,6 @@ const addCar = (req: Request, res: Response) => {
     enginePowerInHp: engine_power_in_hp,
     engineType: engine_type,
     vin,
-    booked,
-    bought,
-    presenceOfFaults: presence_of_faults,
   } = req.body;
 
   const car_uid = crypto.randomUUID();
@@ -58,13 +65,10 @@ const addCar = (req: Request, res: Response) => {
       engine_power_in_hp,
       engine_type,
       vin,
-      booked,
-      bought,
-      presence_of_faults,
     ],
     (error) => {
       if (error) throw error;
-      res.status(201).send('The car has been successfully created');
+      res.status(201).send('Car has been successfully created');
     },
   );
 };
@@ -90,9 +94,6 @@ const updateCar = (req: Request, res: Response) => {
     enginePowerInHp: engine_power_in_hp,
     engineType: engine_type,
     vin,
-    booked,
-    bought,
-    presenceOfFaults: presence_of_faults,
   } = req.body;
 
   const { id: car_uid } = req.params;
@@ -110,15 +111,48 @@ const updateCar = (req: Request, res: Response) => {
       engine_power_in_hp,
       engine_type,
       vin,
-      booked,
-      bought,
-      presence_of_faults,
     ],
     (error, result) => {
       if (error) throw error;
       res.status(200).json(result.rows[0]);
     },
   );
+};
+
+const sellCar = (req: Request, res: Response) => {
+  const { id: car_uid } = req.params;
+
+  pool.query(updateCarStatusQuery, ['sold', car_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('The car has been sold');
+  });
+};
+
+const setFaultyStatusForCar = (req: Request, res: Response) => {
+  const { id: car_uid } = req.params;
+
+  pool.query(updateCarStatusQuery, ['faulty', car_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('Car status has been changed to faulty');
+  });
+};
+
+const bookCar = (req: Request, res: Response) => {
+  const { id: car_uid } = req.params;
+
+  pool.query(updateCarStatusQuery, ['booked', car_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('The car has been booked');
+  });
+};
+
+const setActiveStatusForCar = (req: Request, res: Response) => {
+  const { id: car_uid } = req.params;
+
+  pool.query(updateCarStatusQuery, ['active', car_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('Car status has been changed to active');
+  });
 };
 
 const deleteCar = (req: Request, res: Response) => {
@@ -135,5 +169,9 @@ export {
   addCar,
   getCarById,
   updateCar,
+  sellCar,
+  setFaultyStatusForCar,
+  bookCar,
+  setActiveStatusForCar,
   deleteCar,
 };
