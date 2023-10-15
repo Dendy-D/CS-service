@@ -50,7 +50,7 @@ const createContract = (req: Request, res: Response) => {
     ],
     (error) => {
       if (error) throw error;
-      res.status(201).send('The contract has been succsessfully created');
+      res.status(201).send('Contract has been succsessfully created');
     },
   );
 };

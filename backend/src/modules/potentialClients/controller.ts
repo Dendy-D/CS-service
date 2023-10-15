@@ -51,7 +51,7 @@ const addPotentialClient = (req: Request, res: Response) => {
     ],
     (error) => {
       if (error) throw error;
-      res.status(201).send('The potential client has been successfully created');
+      res.status(201).send('Potential client has been successfully created');
     },
   );
 };
