@@ -38,10 +38,7 @@ const getContractById =
     'price_in_dollars', car.price_in_dollars,
     'engine_power_in_hp', car.engine_power_in_hp,
     'engine_type', car.engine_type,
-    'vin', car.vin,
-    'booked', car.booked,
-    'bought', car.bought,
-    'presence_of_faults', car.presence_of_faults
+    'vin', car.vin
   ) AS car,
   jsonb_build_object(
     'employee_uid', employee.employee_uid,
@@ -50,7 +47,7 @@ const getContractById =
     'gender', employee.gender,
     'email', employee.email,
     'phone_number', employee.phone_number,
-    'role', employee.role
+    'employee_role', employee.employee_role
   ) AS employee,
   jsonb_build_object(
     'potential_client_uid', potential_client.potential_client_uid,

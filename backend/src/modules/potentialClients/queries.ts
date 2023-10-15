@@ -24,10 +24,7 @@ const getPotentialClientById =
     'price_in_dollars', car.price_in_dollars,
     'engine_power_in_hp', car.engine_power_in_hp,
     'engine_type', car.engine_type,
-    'vin', car.vin,
-    'booked', car.booked,
-    'bought', car.bought,
-    'presence_of_faults', car.presence_of_faults
+    'vin', car.vin
   ) AS car
 FROM potential_client
 JOIN car ON potential_client.car_uid = car.car_uid
