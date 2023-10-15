@@ -8,12 +8,22 @@ import {
   addEmployee as addEmployeeQuery,
   getEmployeeById as getEmployeeByIdQuery,
   updateEmployee as updateEmployeeQuery,
-  deleteEmployee as deleteEmployeeQuery,
   checkPhoneNumberOrEmailExists,
+  updateEmployeeStatus as updateEmployeeStatusQuery,
+  deleteEmployee as deleteEmployeeQuery,
 } from './queries';
 
 const getAllEmployees = (req: Request, res: Response) => {
-  pool.query(getAllEmployeesQuery, (error, result) => {
+  const { status } = req.query;
+
+  let employeesQuery = getAllEmployeesQuery;
+
+  if (typeof status === 'string') {
+    const statuses = status.split(',').map((elem) => `'${elem}'`);
+    employeesQuery += ` WHERE status IN (${statuses})`;
+  }
+
+  pool.query(employeesQuery, (error, result) => {
     if (error) throw error;
     res.status(200).json(result.rows);
   });
@@ -31,7 +41,7 @@ const addEmployee = async (req: Request, res: Response) => {
     city,
     country,
     salaryInDollars: salary_in_dollars,
-    role,
+    employeeRole: employee_role,
   } = req.body;
 
   const employee_uid = crypto.randomUUID();
@@ -64,11 +74,11 @@ const addEmployee = async (req: Request, res: Response) => {
       city,
       country,
       salary_in_dollars,
-      role,
+      employee_role,
     ],
     (error) => {
       if (error) throw error;
-      res.status(201).send('The employee has been successfully created');
+      res.status(201).send('Employee has been successfully created');
     }
   );
 };
@@ -95,7 +105,7 @@ const updateEmployee = (req: Request, res: Response) => {
     city,
     country,
     salaryInDollars: salary_in_dollars,
-    role,
+    employeeRole: employee_role,
   } = req.body;
 
   pool.query(updateEmployeeQuery,
@@ -111,13 +121,42 @@ const updateEmployee = (req: Request, res: Response) => {
       city,
       country,
       salary_in_dollars,
-      role,
+      employee_role,
     ],
     (error, result) => {
       if (error) throw error;
       res.status(200).json(result.rows[0]);
     },
   );
+};
+
+const fireEmployee = (req: Request, res: Response) => {
+  const { id: employee_uid } = req.params;
+
+  pool.query(updateEmployeeStatusQuery, ['fired', employee_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('The employee has been fired');
+  });
+};
+
+const setVacationStatusForEmployee = (req: Request, res: Response) => {
+  const { id: employee_uid } = req.params;
+
+  pool.query(updateEmployeeStatusQuery, ['vacation', employee_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('Employee status has been changed to vacation');
+  });
+};
+
+const setActiveStatusForEmployee = (req: Request, res: Response) => {
+  const { id: employee_uid } = req.params;
+
+  // Consider adding a limitaion in change status to active from fired
+
+  pool.query(updateEmployeeStatusQuery, ['active', employee_uid], (error) => {
+    if (error) throw error;
+    res.status(200).send('Employee status has been changed to active');
+  });
 };
 
 const deleteEmployee = (req: Request, res: Response) => {
@@ -134,5 +173,8 @@ export {
   addEmployee,
   getEmployeeById,
   updateEmployee,
+  fireEmployee,
+  setVacationStatusForEmployee,
+  setActiveStatusForEmployee,
   deleteEmployee,
 };

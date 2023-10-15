@@ -10,9 +10,7 @@ create Table car(
   engine_power_in_hp INTEGER NOT NULL,
   engine_type VARCHAR(255) NOT NULL,
   vin VARCHAR(255) NOT NULL UNIQUE,
-  booked BOOLEAN NOT NULL,
-  bought BOOLEAN NOT NULL,
-  presence_of_faults BOOLEAN NOT NULL
+  status VARCHAR(255) REFERENCES car_status(status_name) DEFAULT 'active' NOT NULL
 );
 -- preview File NOT NULL
 
@@ -30,18 +28,18 @@ create Table employee(
   city VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
   salary_in_dollars INTEGER NOT NULL,
-  role VARCHAR(255) NOT NULL
+  employee_role VARCHAR(255) NOT NULL,
+  status VARCHAR(255) REFERENCES employee_status(status_name) DEFAULT 'active' NOT NULL
 );
 -- photo 
--- status Status
 
 create Table employee_status(
-  status_value: VARCHAR(255) NOT NULL,
-)
+  status_name VARCHAR(255) PRIMARY KEY
+);
 
 create Table car_status(
-  status_value: VARCHAR(255) NOT NULL,
-)
+  status_name VARCHAR(255) PRIMARY KEY
+);
 
 create Table potential_client(
   potential_client_uid UUID PRIMARY KEY,

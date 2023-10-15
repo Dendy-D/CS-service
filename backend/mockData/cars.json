@@ -10,7 +10,5 @@
   "enginePowerInHp": 306,
   "engineType": "gasoline",
   "vin": "WDDGF5EB7AR014220",
-  "booked": false,
-  "bought": false,
-  "presenceOfFaults": false
+  "status": "active"
 }]
