@@ -14,16 +14,24 @@ Visual database for employees on a car sales website
   POST /employees
   PUT /employees/:id
 
-  DELETE /employees/:id (backend only)
+  POST /employees/:id/status/fired
+  POST /employees/:id/status/vacation
+  POST /employees/:id/status/active
 
-  POST /employees/{id}/status
+  DELETE /employees/:id (exclusively for backend)
 
 /cars
   GET /cars
   GET /cars/:id
   POST /cars
   PUT /cars/:id
-  DELETE /cars/:id
+
+  POST /cars/:id/status/sold
+  POST /cars/:id/status/faulty
+  POST /cars/:id/status/booked
+  POST /cars/:id/status/active
+  
+  DELETE /cars/:id (exclusively for backend)
 	
 /test-drives
   GET /test-drives
@@ -58,7 +66,7 @@ Visual database for employees on a car sales website
   GET /contracts/:id
   POST /contracts
 
-  DELETE /contracts/:id (backend only)
+  DELETE /contracts/:id (exclusively for backend)
 
 ```
 
@@ -77,9 +85,7 @@ interface Car {
   enginePowerInHp: number,
   engineType: EngineType,
   vin: string,
-  booked: boolean,
-  bought: boolean,
-  presenceOfFaults: boolean,
+  status: CarStatus,
   // preview: File,
 }
 
@@ -96,8 +102,8 @@ interface Employee {
   city: string,
   country: string,
   salaryInDollars: number,
-  role: Role,
-  // status: Status, ??????
+  employeeRole: Role,
+  status: EmployeeStatus,
   // photo
 }
 
@@ -126,23 +132,6 @@ interface TestDrive {
   date: Date,
 }
 
-contract_uid UUID PRIMARY KEY,
-  passport_code VARCHAR(255) NOT NULL UNIQUE,
-  date_of_birth DATE NOT NULL,
-  city VARCHAR(255) NOT NULL,
-  state VARCHAR(255),
-  country VARCHAR(255) NOT NULL,
-  zip_code INTEGER NOT NULL,
-  driver_license VARCHAR(255) NOT NULL,
-  archived BOOLEAN DEFAULT false,
-  potential_client_uid UUID NOT NULL UNIQUE,
-  car_uid UUID NOT NULL UNIQUE,
-  employee_uid UUID NOT NULL UNIQUE,
-  FOREIGN KEY(potential_client_uid) REFERENCES potential_client(potential_client_uid),
-  FOREIGN KEY(car_uid) REFERENCES car(car_uid),
-  FOREIGN KEY(employee_uid) REFERENCES employee(employee_uid)
-);
-
 interface ContractOfSale {
   id: string,
   passportCode: string,
@@ -169,4 +158,13 @@ interface Role {
 interface Gender {
   'male' | 'female' | 'other'
 }
+
+interface EmployeeStatus {
+  'active' | 'fired' | 'vacation'
+}
+
+interface CarStatus {
+  'active' | 'booked' | 'sold' | 'faulty'
+}
+
 ```
