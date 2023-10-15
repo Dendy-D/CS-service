@@ -12,5 +12,6 @@
   "city": "Vancouver",
   "country": "Canada",
   "salaryInDollars": 74000,
-  "role": "seller"
+  "employeeRole": "seller",
+  "status": "active"
 }]
