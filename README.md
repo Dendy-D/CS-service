@@ -63,8 +63,10 @@ Visual database for employees on a car sales website
 
 /contracts
   GET /contracts
-  GET /contracts/:id
   POST /contracts
+  GET /contracts/archived
+  GET /contracts/:id
+  POST /contracts/:id/archived
 
   DELETE /contracts/:id (exclusively for backend)
 
