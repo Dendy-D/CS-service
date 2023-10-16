@@ -35,6 +35,10 @@ const updatePotentialClient = 'UPDATE potential_client SET first_name = $2, last
 
 const deletePotentialClient = 'DELETE FROM potential_client WHERE potential_client_uid = $1';
 
+const getCarById = 'SELECT * FROM car WHERE car_uid = $1';
+
+const updateCarStatus = 'UPDATE car SET status = $1 WHERE car_uid = $2';
+
 export {
   getPotentialClient,
   addPotentialClient,
@@ -42,4 +46,6 @@ export {
   getPotentialClientById,
   updatePotentialClient,
   deletePotentialClient,
+  getCarById,
+  updateCarStatus,
 };
