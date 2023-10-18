@@ -73,6 +73,12 @@ const getArchivedContracts = 'SELECT * FROM contract WHERE archived = true';
 
 const deleteContract = 'DELETE FROM contract WHERE contract_uid = $1';
 
+const getCarById = 'SELECT * FROM car WHERE car_uid = $1';
+
+const updateCarStatus = 'UPDATE car SET status = $1 WHERE car_uid = $2';
+
+const getEmployeeById = 'SELECT * FROM employee WHERE employee_uid = $1';
+
 export {
   getContracts,
   createContracts,
@@ -80,4 +86,7 @@ export {
   archiveContract,
   getArchivedContracts,
   deleteContract,
+  getCarById,
+  updateCarStatus,
+  getEmployeeById,
 };
