@@ -9,6 +9,9 @@ import {
   archiveContract as archiveContractQuery,
   getArchivedContracts as getArchivedContractsQuery,
   deleteContract as deleteContractQuery,
+  getCarById as getCarByIdQuery,
+  updateCarStatus as updateCarStatusQuery,
+  getEmployeeById as getEmployeeByIdQuery,
 } from './queries';
 
 const getContracts = (req: Request, res: Response) => {
@@ -18,7 +21,7 @@ const getContracts = (req: Request, res: Response) => {
   });
 };
 
-const createContract = (req: Request, res: Response) => {
+const createContract = async (req: Request, res: Response) => {
   const {
     passportCode: passport_code,
     dateOfBirth: date_of_birth,
@@ -34,25 +37,40 @@ const createContract = (req: Request, res: Response) => {
 
   const contract_uid = crypto.randomUUID();
 
-  pool.query(createContractsQuery,
-    [
-      contract_uid,
-      passport_code,
-      date_of_birth,
-      city,
-      state,
-      country,
-      zip_code,
-      driver_license,
-      potential_client_uid,
-      car_uid,
-      employee_uid,
-    ],
-    (error) => {
-      if (error) throw error;
-      res.status(201).send('Contract has been succsessfully created');
-    },
-  );
+  const car = (await pool.query(getCarByIdQuery, [car_uid])).rows[0];
+
+  const employee = (await pool.query(getEmployeeByIdQuery, [employee_uid])).rows[0];
+  // TODO: add normal error handling here
+
+  if (car.status !== 'active' || employee.status !== 'active') {
+    if (car.status !== 'active') {
+      res.status(500).send('The car is not available for selling');
+    }
+    if (employee.status !== 'active') {
+      res.status(500).send('The employee cannot be an initiator of a contract');
+    }
+  } else {
+    pool.query(createContractsQuery,
+      [
+        contract_uid,
+        passport_code,
+        date_of_birth,
+        city,
+        state,
+        country,
+        zip_code,
+        driver_license,
+        potential_client_uid,
+        car_uid,
+        employee_uid,
+      ],
+      async (error) => {
+        if (error) throw error;
+        await pool.query(updateCarStatusQuery, ['sold', car_uid]);
+        res.status(201).send('Contract has been succsessfully created');
+      },
+    );
+  }
 };
 
 const getContractById = (req: Request, res: Response) => {
