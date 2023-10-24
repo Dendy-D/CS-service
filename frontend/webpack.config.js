@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -8,6 +8,8 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'icons/[name][ext]',
+    publicPath: '/',
   },
   devServer: {
     static: {
@@ -44,6 +46,16 @@ module.exports = {
           "css-loader",
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] },
+        use: ['@svgr/webpack'],
       },
     ]
   },
