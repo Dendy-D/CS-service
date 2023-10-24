@@ -1,0 +1,21 @@
+.component {
+  height: 100%;
+  background-color: #131133;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px;
+  overflow: hidden;
+
+  .sideBar {
+    width: 15%;
+    padding: 15px 5px;
+  }
+
+  .content {
+    background-color: #F8F9FB;
+    width: 85%;
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
