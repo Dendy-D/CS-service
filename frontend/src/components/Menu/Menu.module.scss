@@ -1,0 +1,105 @@
+.component {
+  color: #6E7587;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  .logoAndName {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h2 {
+      color: white;
+      font-size: 18px;
+    }
+  
+    p {
+      font-size: 12px;
+    }
+
+    svg {
+      width: auto;
+      height: auto;
+      circle {
+        fill: #5F57FF;
+      }
+    }
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
+    circle {
+      fill: #6E7587;
+    }
+    g {
+      stroke: #6E7587;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  span {
+    color: #6E7587;
+  }
+  
+  li:hover {
+    cursor: pointer;
+  
+    span {
+      color: white;
+      transition: 0.06s linear;
+    }
+  
+    svg {
+      circle {
+        fill: white;
+        transition: 0.06s linear;
+      }
+      g {
+        stroke: white;
+        transition: 0.06s linear;
+      }
+    }
+
+    .svgWithFill {
+      fill: white;
+      transition: 0.06s linear;
+    }
+  }
+
+  li.active {
+    background-color: #5F57FF;
+    border-radius: 10px;
+
+    span {
+      color: white;
+    }
+
+    svg {
+      circle {
+        fill: white;
+      }
+      g {
+        stroke: white;
+      }
+    }
+
+    .svgWithFill {
+      fill: white;
+    }
+  }
+}
