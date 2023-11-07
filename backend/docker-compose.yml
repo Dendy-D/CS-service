@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  # PostreSQL service
+  database:
+    image: postgres
+    ports:
+      - 5001:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=blueguy
+      - POSTGRES_PASSWORD=lavender
+      - POSTGRES_DB=carssellingdb
+    restart: always
+
+  # NodeJS service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: 
+        - TAG_VERSION=${TAG_VERSION:-latest}
+    image: backend:${TAG_VERSION}
+    ports:
+      - 5000:5000
+    env_file: .env
+    environment:
+      - DB_HOST_NAME=database
+      - DB_PORT=5432
+    depends_on:
+      - database
+
+volumes:
+  pgdata: {}
+
+    

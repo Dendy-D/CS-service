@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as crypto from 'crypto';
 
-import pool from '../../database/db';
+import pool from '../../../database/db';
 import {
   getPotentialClient as getPotentialClientQuery,
   addPotentialClient as addPotentialClientQuery,
