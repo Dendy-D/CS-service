@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import * as bcrypt from 'bcrypt';
 import crypto from 'crypto';
 
-import pool from '../../database/db';
+import pool from '../../../database/db';
 import {
   getAllEmployees as getAllEmployeesQuery,
   addEmployee as addEmployeeQuery,
